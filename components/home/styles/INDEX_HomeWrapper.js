@@ -30,6 +30,8 @@ export const INDEX_HomeWrapper = styled.div`
       mask-position: center;
       filter: contrast(150%);
       
+      width:80%;
+      
       
       
     }
