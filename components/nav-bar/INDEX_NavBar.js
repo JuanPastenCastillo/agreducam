@@ -13,7 +13,7 @@ const LINKS = [
   },
   {
     label: "Servicios",
-    route: "/"
+    route: "/servicios"
   },
   {
     label: "Contacto",
@@ -29,39 +29,20 @@ export const INDEX_NavBar = () => {
     theRouter.push("/")
   }
 
-  // const refMenu = useRef(null)
-
   const [shouldChangeOrder, setShouldChangeOrder] = useState(false)
   const refMenu = useRef(null)
 
   useEffect(() => {
     if (window !== undefined && refMenu.current !== undefined) {
       const handleCheckWrap = () => {
-        // let styles = window.getComputedStyle(refMenu.current).getPropertyValue("flex-wrap")
-
-        // // console.log("styles:", styles)
-
-        // let otherWay = window.getComputedStyle(refMenu.current).flexWrap
-        // console.log('otherWay:', otherWay)
-
-        // console.log('refMenu.current.offSetTop:', refMenu.current.children)
-
-        // console.log('refMenu.current.children:', refMenu.current.children)
-
-
-
         let secondChild = refMenu.current.children[1].offsetTop
-        // console.log('secondChild:', secondChild, thirdChild)
         let thirdChild = refMenu.current.children[2].offsetTop
-        // // console.log('thirdChild:', thirdChild)
         if (secondChild !== thirdChild) {
           setShouldChangeOrder(true)
         } else {
           setShouldChangeOrder(false)
         }
       }
-
-      // console.log("refMenu:", refMenu.current)
 
       window.addEventListener("resize", handleCheckWrap)
 
@@ -70,7 +51,7 @@ export const INDEX_NavBar = () => {
   }, [])
 
   return (
-    <INDEX_NavBarWrapper shouldChangeOrder={shouldChangeOrder}>
+    <INDEX_NavBarWrapper $shouldChangeOrder={shouldChangeOrder}>
       <div onClick={handleMoveToHome}>
         <Image
           src={AGREDUCAM_Logo}
@@ -88,7 +69,6 @@ export const INDEX_NavBar = () => {
                 route={route}
                 label={label}
                 key={label}
-              // theRef={refMenu}
               />
             )
           })}

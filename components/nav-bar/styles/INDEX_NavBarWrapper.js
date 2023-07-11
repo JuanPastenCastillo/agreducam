@@ -6,6 +6,11 @@ export const INDEX_NavBarWrapper = styled.header`
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
+  padding: 16px;
+  
+  position: relative;
+  z-index: 999;
+  
 
   & > :nth-child(1) {
     /* width:250px; */
@@ -35,7 +40,7 @@ export const INDEX_NavBarWrapper = styled.header`
 
       & > :nth-child(2) {
         /* border: 2px solid crimson; */
-        order: ${({ shouldChangeOrder }) => shouldChangeOrder && "2"};
+        order: ${({ $shouldChangeOrder }) => $shouldChangeOrder && "2"};
       }
 
       /* grid-template-areas: "firstLevelA firstLevelB firstLevelC"; */
