@@ -1,7 +1,6 @@
 "use client"
 import Image from "next/image.js"
 import { usePathname, useRouter } from "next/navigation.js"
-import { useEffect, useRef, useState } from "react"
 import AGREDUCAM_Logo from "../../assets/images/AGREDUCAM_Logo.webp"
 import { NavBar_Single } from "./NavBar_Single.js"
 import { INDEX_NavBarWrapper } from "./styles/INDEX_NavBarWrapper.js"
@@ -24,34 +23,16 @@ const LINKS = [
 export const INDEX_NavBar = () => {
   const thePathname = usePathname()
   const theRouter = useRouter()
+  console.log('theRouter:', theRouter.events)
 
   const handleMoveToHome = () => {
     theRouter.push("/")
   }
 
-  const [shouldChangeOrder, setShouldChangeOrder] = useState(false)
-  const refMenu = useRef(null)
 
-  useEffect(() => {
-    if (window !== undefined && refMenu.current !== undefined) {
-      const handleCheckWrap = () => {
-        let secondChild = refMenu.current.children[1].offsetTop
-        let thirdChild = refMenu.current.children[2].offsetTop
-        if (secondChild !== thirdChild) {
-          setShouldChangeOrder(true)
-        } else {
-          setShouldChangeOrder(false)
-        }
-      }
-
-      window.addEventListener("resize", handleCheckWrap)
-
-      return () => window.removeEventListener("resize", handleCheckWrap)
-    }
-  }, [])
 
   return (
-    <INDEX_NavBarWrapper $shouldChangeOrder={shouldChangeOrder}>
+    <INDEX_NavBarWrapper >
       <div onClick={handleMoveToHome}>
         <Image
           src={AGREDUCAM_Logo}
@@ -61,7 +42,7 @@ export const INDEX_NavBar = () => {
       </div>
 
       <nav>
-        <ul ref={refMenu}>
+        <ul >
           {LINKS.map(({ label, route }) => {
             return (
               <NavBar_Single

@@ -1,17 +1,17 @@
 import styled from "styled-components"
 
 export const INDEX_HomeWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   & > :nth-child(1) {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    
-    width: 75%;
 
-    inset: 0;
     margin: auto;
-    z-index: 1;
 
     & > :nth-child(1) {
       -webkit-mask-image: url(${(variableHere) => variableHere.image});
@@ -27,10 +27,14 @@ export const INDEX_HomeWrapper = styled.div`
       filter: contrast(120%);
 
       width: 100%;
+
+      border: 2px solid green;
     }
   }
-  
-  & > :nth-child(2){
+
+  /* & > :nth-child(2){
+    
+    
     margin-top: 32px;
     display: flex;
     align-items: center;
@@ -47,6 +51,5 @@ export const INDEX_HomeWrapper = styled.div`
     }
     
     
-  }
-  
+  } */
 `

@@ -11,14 +11,11 @@ export const INDEX_NavBarWrapper = styled.header`
   position: relative;
   z-index: 999;
   
-
   & > :nth-child(1) {
-    /* width:250px; */
     cursor: pointer;
 
     border-radius: 8px;
 
-    /* border: 2px solid crimson; */
 
     & > :nth-child(1) {
       border-radius: 8px;
@@ -36,24 +33,6 @@ export const INDEX_NavBarWrapper = styled.header`
 
       border: 2px solid crimson;
 
-      /* &:has() */
-
-      & > :nth-child(2) {
-        /* border: 2px solid crimson; */
-        order: ${({ $shouldChangeOrder }) => $shouldChangeOrder && "2"};
-      }
-
-      /* grid-template-areas: "firstLevelA firstLevelB firstLevelC"; */
-
-      /* & > :nth-child(1) {
-        grid-area: firstLevelA;
-      }
-      & > :nth-child(2) {
-        grid-area: firstLevelB;
-      }
-      & > :nth-child(3) {
-        grid-area: firstLevelC;
-      } */
     }
   }
 `
