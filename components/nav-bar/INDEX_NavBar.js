@@ -22,27 +22,17 @@ const LINKS = [
 
 export const INDEX_NavBar = () => {
   const thePathname = usePathname()
+  console.log("thePathname:", thePathname)
   const theRouter = useRouter()
-  console.log('theRouter:', theRouter.events)
 
   const handleMoveToHome = () => {
     theRouter.push("/")
   }
 
-
-
   return (
-    <INDEX_NavBarWrapper >
-      <div onClick={handleMoveToHome}>
-        <Image
-          src={AGREDUCAM_Logo}
-          alt="Agreducam logo"
-          width={125}
-        />
-      </div>
-
+    <INDEX_NavBarWrapper className={thePathname === "/" ? "" : "isNotHome"}>
       <nav>
-        <ul >
+        <ul>
           {LINKS.map(({ label, route }) => {
             return (
               <NavBar_Single
@@ -55,6 +45,16 @@ export const INDEX_NavBar = () => {
           })}
         </ul>
       </nav>
+
+      <div onClick={handleMoveToHome}>
+        <Image
+          src={AGREDUCAM_Logo}
+          alt="Logo de Agreducam"
+          // layout={thePathname === "/" ? "responsive" : ""}
+          layout={"responsive"}
+        // objectFit={thePathname === "/" ? "" : "contain"}
+        />
+      </div>
     </INDEX_NavBarWrapper>
   )
 }

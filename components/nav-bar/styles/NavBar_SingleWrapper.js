@@ -10,6 +10,15 @@ export const NavBar_SingleWrapper = styled.li`
   text-align: center;
   padding: 16px 45px;
   
+  /* border: 2px solid crimson; */
+  /* width:100%; */
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  
+  
+  
+  
 
   & > a {
     /* padding: 16px 45px; */
