@@ -18,6 +18,13 @@ const animate2 = keyframes`
  }
 `
 
+const rotate = keyframes`
+  0% {transform: translate(-50%, 0) rotateZ(0deg);}
+  50% {transform: translate(-50%, -2%) rotateZ(180deg);}
+  100% {transform: translate(-50%, 0%) rotateZ(360deg);}
+
+`
+
 export const INDEX_FooterWrapper = styled.div`
   position: relative;
 
@@ -26,7 +33,10 @@ export const INDEX_FooterWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
 
-  padding: 24px;
+  /* padding: 24px; */
+  overflow: hidden;
+  
+  background-color: white;
 
   & > :nth-child(1) {
     background: rgba(0, 0, 0, 0.65);
@@ -41,19 +51,47 @@ export const INDEX_FooterWrapper = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    
+
     text-align: center;
-    
+
     position: relative;
     z-index: 1001;
-    
-    & > *:not(:first-child):not(:last-child){
+
+    & > *:not(:first-child):not(:last-child) {
       margin-bottom: 24px;
     }
-    
   }
 
-  .wave {
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    min-width: 300vw;
+    min-height: 300vw;
+    background-color: black;
+    animation-name: ${rotate};
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+
+  &::before {
+    bottom: 1vh;
+    border-radius: 45%;
+    animation-duration: 40s;
+  }
+
+  &::after {
+    bottom: 2vh;
+    opacity: 0.5;
+    border-radius: 47%;
+    animation-duration: 32s;
+  }
+
+  .waveCSS {
+  }
+
+  /* .wave {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -97,5 +135,5 @@ export const INDEX_FooterWrapper = styled.div`
     opacity: 0.3;
     animation-delay: -5s;
     bottom: 20px;
-  }
+  } */
 `

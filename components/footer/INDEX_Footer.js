@@ -10,10 +10,12 @@ export const INDEX_Footer = () => {
         <p>Fundada el 27 de abril, 2000</p>
       </div>
 
-      <div className="wave wave1" />
+      <div className="waveCSS" />
+
+      {/* <div className="wave wave1" />
       <div className="wave wave2" />
       <div className="wave wave3" />
-      <div className="wave wave4" />
+      <div className="wave wave4" /> */}
     </INDEX_FooterWrapper>
   )
 }

@@ -12,7 +12,7 @@ export const INDEX_Home = () => {
           muted
           disablePictureInPicture
           controlsList="nodownload"
-          src={"TopDownBeach.mp4"}
+          src={"TopDownBeach-D.mp4"}
           type="video/mp4"
         />
       </div>

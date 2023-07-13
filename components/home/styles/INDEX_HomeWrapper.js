@@ -12,10 +12,16 @@ export const INDEX_HomeWrapper = styled.div`
     flex-wrap: wrap;
 
     margin: auto;
+    
+    
+    
+    
+    
 
     & > :nth-child(1) {
       -webkit-mask-image: url(${(variableHere) => variableHere.image});
-      mask-image: url(${(variableHere) => variableHere.image});
+       mask-image: url(${(variableHere) => variableHere.image});
+      /* mask-image: linear-gradient(rgba(255,255,255, 1), transparent); */
 
       -webkit-mask-size: contain;
       -webkit-mask-repeat: no-repeat;
@@ -25,10 +31,9 @@ export const INDEX_HomeWrapper = styled.div`
       mask-repeat: no-repeat;
       mask-position: center;
       filter: contrast(120%);
+      
 
       width: 100%;
-
-      border: 2px solid green;
     }
   }
 
