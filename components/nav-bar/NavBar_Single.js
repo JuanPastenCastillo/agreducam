@@ -10,6 +10,9 @@ export const NavBar_Single = ({ pathName, route, label }) => {
 
   return (
     <NavBar_SingleWrapper
+
+      className={pathName === route ? "isActiveLink" : ""}
+
       $isActiveLink={pathName === route}
       onClick={handleMoveUser}>
       <p>{label}</p>

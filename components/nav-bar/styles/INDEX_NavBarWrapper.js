@@ -13,15 +13,17 @@ export const INDEX_NavBarWrapper = styled.header`
 
   & > :nth-child(1) {
     & > :nth-child(1) {
-      border: 1px solid hsl(42.7, 88.7%, 78.2%);
       border-radius: 4px;
 
       display: flex;
-      /* justify-content: space-evenly; */
       flex-wrap: wrap;
-      
-      & > *{
-        flex:1;
+
+      & > * {
+        
+        
+        flex: 1;
+        
+        
         
       }
     }
@@ -74,7 +76,7 @@ export const INDEX_NavBarWrapper = styled.header`
     & > :nth-child(2) {
       min-width: 15%;
       max-width: 115px;
-      box-shadow:none;
+      box-shadow: none;
     }
   }
 `
