@@ -20,7 +20,7 @@ const animate2 = keyframes`
 
 const rotate = keyframes`
   0% {transform: translate(-50%, 0) rotateZ(0deg);}
-  50% {transform: translate(-50%, -2%) rotateZ(180deg);}
+  50% {transform: translate(-50%, 2%) rotateZ(180deg);}
   100% {transform: translate(-50%, 0%) rotateZ(360deg);}
 
 `
@@ -33,10 +33,8 @@ export const INDEX_FooterWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
 
-  /* padding: 24px; */
-  overflow: hidden;
-  
   background-color: white;
+  overflow:hidden;
 
   & > :nth-child(1) {
     background: rgba(0, 0, 0, 0.65);
@@ -68,7 +66,7 @@ export const INDEX_FooterWrapper = styled.div`
     position: absolute;
     left: 50%;
     min-width: 300vw;
-    min-height: 300vw;
+    min-height: 280vw;
     background-color: black;
     animation-name: ${rotate};
     animation-iteration-count: infinite;
@@ -76,14 +74,14 @@ export const INDEX_FooterWrapper = styled.div`
   }
 
   &::before {
-    bottom: 1vh;
+    bottom: 3vh;
     border-radius: 45%;
     animation-duration: 40s;
   }
 
   &::after {
     bottom: 2vh;
-    opacity: 0.5;
+    opacity: 0.3;
     border-radius: 47%;
     animation-duration: 32s;
   }
