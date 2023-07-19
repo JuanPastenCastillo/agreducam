@@ -4,5 +4,5 @@ export const CHECK_WIDTH = {
 
 export const ANIMATION_DURATION = {
   fadeIn_fadeOut: "4s",
-  timeToNextComponent: 400
+  timeToNextComponent: 3000
 }
