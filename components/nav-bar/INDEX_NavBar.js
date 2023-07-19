@@ -22,7 +22,6 @@ const LINKS = [
 
 export const INDEX_NavBar = () => {
   const thePathname = usePathname()
-  console.log("thePathname:", thePathname)
   const theRouter = useRouter()
 
   const handleMoveToHome = () => {
