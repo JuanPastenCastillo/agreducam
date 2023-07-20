@@ -1,5 +1,5 @@
 import { ANIMATION_DURATION } from "@/utils/VARIABLES.js"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Servicios_1 } from "./Servicios_1.js"
 import { Servicios_2 } from "./Servicios_2.js"
 import { Servicios_3 } from "./Servicios_3.js"
@@ -51,7 +51,6 @@ export const INDEX_Servicios = () => {
 
   useEffect(() => {
     if (milliseconds === ANIMATION_DURATION.timeToNextComponent && showIndex !== maxComponents - 1) {
-
       updateShowIndex()
       setMilliseconds(0)
     }
@@ -69,16 +68,13 @@ export const INDEX_Servicios = () => {
       updateShowIndex(true)
       setMilliseconds(0)
       setPause(false)
-
     }
 
     const rightPart = (75 * window.innerWidth) / 100
     if (event.clientX >= rightPart) {
-
       updateShowIndex()
       setMilliseconds(0)
       setPause(false)
-
     }
   }
 
@@ -116,7 +112,6 @@ export const INDEX_Servicios = () => {
     setChangeTypeOfCursor("default")
   }
 
-
   useEffect(() => {
     function handleKeyPress(event) {
       if (event.code === "KeyK" || event.code === "KeyP") {
@@ -144,6 +139,22 @@ export const INDEX_Servicios = () => {
     }
   }, [showIndex])
 
+  const [hasScrolled, setHasScrolled] = useState(false)
+
+  const myComponentRef = useRef(null)
+
+  useEffect(() => {
+    if (myComponentRef.current) {
+      const position = myComponentRef.current.getBoundingClientRect().top + window.scrollY
+      const offset = 53 // replace with the desired offset
+      const scrollPosition = position - offset
+      window.scroll({
+        top: scrollPosition,
+        behavior: "smooth"
+      })
+    }
+  }, [])
+
   return (
     <INDEX_ServiciosWrapper
       $changeTypeOfCursor={changeTypeOfCursor}
@@ -154,8 +165,7 @@ export const INDEX_Servicios = () => {
       onMouseEnter={handleChangeCursor}
       onMouseLeave={handleDefaultCursor}
       onMouseMove={handleMoveCursor}
-
-    >
+      ref={myComponentRef}>
       <div
         style={{
           width: `${showIndex < maxComponents - 1 ? (milliseconds * 100) / ANIMATION_DURATION.timeToNextComponent : 100
