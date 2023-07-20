@@ -11,6 +11,7 @@ export const INDEX_Servicios = () => {
   const [maxComponents, setMaxComponents] = useState(4)
   const [showIndex, setShowIndex] = useState(-1)
   const [pause, setPause] = useState(true)
+  console.log('pause:', pause)
   const [milliseconds, setMilliseconds] = useState(0)
 
   // Create a function that updates the showIndex state variable by incrementing it by one and wrapping it around the number of components
@@ -56,8 +57,8 @@ export const INDEX_Servicios = () => {
     }
   }, [milliseconds])
 
-  const handlePauseWithDoubleClick = (e) => {
-    if (e.detail === 1) {
+  const handlePauseWithClick = (e) => {
+    if (e.detail === 1 && showIndex >= 0 && showIndex < maxComponents - 1) {
       setPause((prevState) => !prevState)
     }
   }
@@ -132,17 +133,12 @@ export const INDEX_Servicios = () => {
     }
 
     document.addEventListener("keydown", handleKeyPress)
-
-    // Clean up the event listener when the component unmounts
     return () => {
       document.removeEventListener("keydown", handleKeyPress)
     }
   }, [showIndex])
 
-  const [hasScrolled, setHasScrolled] = useState(false)
-
   const myComponentRef = useRef(null)
-
   useEffect(() => {
     if (myComponentRef.current) {
       const position = myComponentRef.current.getBoundingClientRect().top + window.scrollY
@@ -159,7 +155,7 @@ export const INDEX_Servicios = () => {
     <INDEX_ServiciosWrapper
       $changeTypeOfCursor={changeTypeOfCursor}
       onClick={(e) => {
-        handlePauseWithDoubleClick(e)
+        handlePauseWithClick(e)
         handleClickRightOrLeft(e)
       }}
       onMouseEnter={handleChangeCursor}
