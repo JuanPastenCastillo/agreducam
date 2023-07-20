@@ -25,7 +25,7 @@ export const INDEX_NavBar = () => {
   const theRouter = useRouter()
 
   const handleMoveToHome = () => {
-    theRouter.push("/")
+    theRouter.push("/home")
   }
 
   return (
