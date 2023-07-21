@@ -4,6 +4,7 @@ import { Servicios_1 } from "./Servicios_1.js"
 import { Servicios_2 } from "./Servicios_2.js"
 import { Servicios_3 } from "./Servicios_3.js"
 import { Servicios_4 } from "./Servicios_4.js"
+import { Servicios_Final } from "./Servicios_Final.js"
 import { Servicios_Todos } from "./Servicios_Todos.js"
 import { INDEX_ServiciosWrapper } from "./styles/INDEX_ServiciosWrapper.js"
 
@@ -11,8 +12,8 @@ export const INDEX_Servicios = () => {
   const [maxComponents, setMaxComponents] = useState(4)
   const [showIndex, setShowIndex] = useState(-1)
   const [pause, setPause] = useState(true)
-  console.log('pause:', pause)
   const [milliseconds, setMilliseconds] = useState(0)
+  const [finalServiceSelection, setFinalServiceSelection] = useState()
 
   // Create a function that updates the showIndex state variable by incrementing it by one and wrapping it around the number of components
   const updateShowIndex = (toLeft = false) => {
@@ -20,11 +21,16 @@ export const INDEX_Servicios = () => {
       setShowIndex((prevState) => (prevState + 1) % maxComponents)
     }
 
-    if (showIndex >= 0 && !toLeft) {
+    if (showIndex >= 0 && showIndex < maxComponents - 1 && !toLeft) {
+      console.log("🟦")
       setShowIndex((prevState) => (prevState + 1) % maxComponents)
     }
 
-    if (showIndex > 0 && toLeft) {
+    if (showIndex === maxComponents - 1 && !toLeft) {
+      setShowIndex("final")
+    }
+
+    if (showIndex > 0 && showIndex !== maxComponents - 1 && toLeft) {
       setShowIndex((prevState) => (prevState - 1) % maxComponents)
     }
 
@@ -83,30 +89,33 @@ export const INDEX_Servicios = () => {
 
   const handleChangeCursor = (event) => {
     const leftPart = (25 * window.innerWidth) / 100
-    if (event.clientX <= leftPart) {
+    if (event.clientX <= leftPart && showIndex >= 0 && typeof showIndex === "number") {
       setChangeTypeOfCursor("left")
     }
 
     const rightPart = (75 * window.innerWidth) / 100
-    if (event.clientX >= rightPart) {
+    if (event.clientX >= rightPart && showIndex !== "final") {
       setChangeTypeOfCursor("right")
     }
   }
 
   const handleMoveCursor = (event) => {
     const leftPart = (25 * window.innerWidth) / 100
-    if (event.clientX <= leftPart) {
+    if (showIndex >= 0 && typeof showIndex === "number" && event.clientX <= leftPart) {
       setChangeTypeOfCursor("left")
     }
 
     const rightPart = (75 * window.innerWidth) / 100
-    if (event.clientX >= rightPart) {
+    if (event.clientX >= rightPart && showIndex !== "final") {
       setChangeTypeOfCursor("right")
     }
 
     if (event.clientX <= leftPart === false && event.clientX >= rightPart === false) {
       setChangeTypeOfCursor("default")
     }
+
+
+
   }
 
   const handleDefaultCursor = () => {
@@ -142,7 +151,7 @@ export const INDEX_Servicios = () => {
   useEffect(() => {
     if (myComponentRef.current) {
       const position = myComponentRef.current.getBoundingClientRect().top + window.scrollY
-      const offset = 53 // replace with the desired offset
+      const offset = 53
       const scrollPosition = position - offset
       window.scroll({
         top: scrollPosition,
@@ -175,6 +184,13 @@ export const INDEX_Servicios = () => {
       <Servicios_2 shouldShow={showIndex === 1} />
       <Servicios_3 shouldShow={showIndex === 2} />
       <Servicios_4 shouldShow={showIndex === 3} />
+
+      <Servicios_Final
+        shouldShow={showIndex === "final"}
+        setFinalServiceSelection={setFinalServiceSelection}
+        setShowIndex={setShowIndex}
+
+      />
     </INDEX_ServiciosWrapper>
   )
 }
