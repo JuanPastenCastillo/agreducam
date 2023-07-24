@@ -14,12 +14,9 @@ export const INDEX_ServiciosWrapper = styled.div`
 
   & > :nth-child(1) {
     height: 1%;
-
     background-color: white;
     position: relative;
-
     z-index: 2;
-
     border-bottom-right-radius: 4px;
   }
 

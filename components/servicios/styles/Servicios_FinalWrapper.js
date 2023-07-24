@@ -13,7 +13,9 @@ export const Servicios_FinalWrapper = styled.div`
   opacity: ${({ shouldShow }) => (shouldShow ? `1` : `0`)};
   transition: opacity 3500ms;
   position: absolute;
-  z-index:2;
+  /* z-index:2; */
+  z-index:${({ shouldShow }) => shouldShow ? `2` : `-1`};
+  
   inset: 0;
   
   & > *{
