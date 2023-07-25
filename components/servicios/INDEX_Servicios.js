@@ -18,8 +18,6 @@ export const INDEX_Servicios = () => {
 
   // Create a function that updates the showIndex state variable by incrementing it by one and wrapping it around the number of components
   const handleUpdateShowIndex = (toLeft = false) => {
-    console.log("💚showIndex:", showIndex, maxComponents)
-
     if (showIndex > 0 && showIndex <= maxComponents - 1 && toLeft) {
       setShowIndex((prevState) => (prevState - 1) % maxComponents)
     }
@@ -33,7 +31,6 @@ export const INDEX_Servicios = () => {
     }
 
     if (showIndex >= 0 && showIndex < maxComponents - 1 && !toLeft) {
-      console.log("🟦")
       setShowIndex((prevState) => (prevState + 1) % maxComponents)
     }
 
@@ -51,8 +48,6 @@ export const INDEX_Servicios = () => {
 
   useEffect(() => {
     if (pause === false && showIndex >= 0 && showIndex <= maxComponents - 1) {
-      // console.log('pause === false, showIndex >= 0, showIndex <= maxComponents - 1:', pause === false, showIndex >= 0, showIndex <= maxComponents - 1)
-
       function updateMilliseconds() {
         setMilliseconds((prevMilliseconds) => prevMilliseconds + 1)
       }
@@ -184,7 +179,9 @@ export const INDEX_Servicios = () => {
         }}
       />
 
-      <Servicios_Todos shouldShow={showIndex === -1} showIndex={showIndex}
+      <Servicios_Todos
+        shouldShow={showIndex === -1}
+        showIndex={showIndex}
       />
 
       <Servicios_1 shouldShow={showIndex === 0} />

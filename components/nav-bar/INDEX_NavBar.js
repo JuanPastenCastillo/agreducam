@@ -49,9 +49,7 @@ export const INDEX_NavBar = () => {
         <Image
           src={AGREDUCAM_Logo}
           alt="Logo de Agreducam"
-          // layout={thePathname === "/" ? "responsive" : ""}
           layout={"responsive"}
-        // objectFit={thePathname === "/" ? "" : "contain"}
         />
       </div>
     </INDEX_NavBarWrapper>

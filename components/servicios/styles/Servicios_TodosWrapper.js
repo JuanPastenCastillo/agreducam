@@ -17,55 +17,65 @@ export const Servicios_TodosWrapper = styled.div`
   position: absolute;
   inset: 0;
   z-index: 2;
-  
-  & > .showTutorialLeft{
-    position:absolute;
-    z-index:3;
-    /* display:${({ showTutorial }) => showTutorial ? "block" : "none"}; */
-    
-    left:0;
-    width:25%;
-    background-color:hsl(0, 100%, 50%, 0.4);
-    height:100%;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align:center;
-    
-    
-    opacity:${({ showTutorial }) => showTutorial ? "1" : "0"};
-    transition :all 1s linear;
-    
-    
-    
-    
+
+  & > .tutorial {
+    opacity: ${({ showTutorial }) => (showTutorial ? "1" : "0")};
+
+    & > .showTutorialLeft,
+    & > .showTutorialRight {
+      top: 0;
+      position: absolute;
+      z-index: 3;
+      width: 25%;
+      background-color: hsl(0, 100%, 50%, 0.4);
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      opacity: ${({ showTutorial }) => (showTutorial ? "1" : "0")};
+      transition: all 1s linear;
+
+      & > p {
+        & > span {
+          font-weight: 800;
+          display: block;
+        }
+      }
+    }
+
+    & > .showTutorialLeft {
+      left: 0;
+    }
+    & > .showTutorialRight {
+      right: 0;
+    }
+
+    & > .tutorialControls {
+      position: absolute;
+      left: 25%;
+      right: 25%;
+      bottom: 0;
+      height: 5%;
+      /* width: 100%; */
+      background-color: hsl(0, 100%, 50%, 0.4);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      opacity: ${({ showTutorial }) => (showTutorial ? "1" : "0")};
+      transition: all 1s linear;
+
+      & > p {
+        text-align:center;
+        & > span {
+          font-weight: 800;
+          /* display: block; */
+        }
+      }
+    }
   }
-  
-  
-  
-  & > .showTutorialRight{
-    position:absolute;
-    z-index:3;
-    /* display:${({ showTutorial }) => showTutorial ? "block" : "none"}; */
-    
-    right:0;
-    width:25%;
-    background-color:hsl(0, 100%, 50%, 0.4);
-    height:100%;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align:center;
-    
-    opacity:${({ showTutorial }) => showTutorial ? "1" : "0"};
-    
-    transition :all 1s linear;
-    
-    
-    
-    
-  }
-  
 `

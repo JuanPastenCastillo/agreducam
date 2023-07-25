@@ -9,7 +9,7 @@ export const Servicios_Todos = ({ shouldShow = true, showIndex }) => {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setShowTutorial(true)
-    }, 2000)
+    }, 11000)
     return () => {
       clearTimeout(timeoutId)
     }
@@ -37,15 +37,10 @@ export const Servicios_Todos = ({ shouldShow = true, showIndex }) => {
     }
   }, [showIndex])
 
-
   return (
     <Servicios_TodosWrapper
       shouldShow={shouldShow}
       showTutorial={showTutorial}>
-      <div className={"showTutorialLeft"}>
-        <p>{isTouchScreen ? "Toca" : "Haz click"} en esta zona para mostrar el servicio anterior</p>
-      </div>
-
       <div>
         <h1>Todos los Servicios</h1>
         <h2>Servicio_1</h2>
@@ -54,8 +49,50 @@ export const Servicios_Todos = ({ shouldShow = true, showIndex }) => {
         <h2> MAIN_FIRST</h2>
       </div>
 
-      <div className={"showTutorialRight"}>
-        <p>{isTouchScreen ? "Toca" : "Haz click"} en esta zona para mostrar el siguiente servicio</p>
+      <div className="tutorial">
+        <div className={"showTutorialLeft"}>
+          {isTouchScreen ? (
+            <>
+              <p>
+                <span>Toca en esta zona</span> para mostrar el servicio anterior
+              </p>
+            </>
+          ) : (
+            <>
+              <p>
+                Haz <span>click en esta zona</span> o presiona la <span>flecha izquierda</span> para mostrar el servicio
+                anterior
+              </p>
+            </>
+          )}
+        </div>
+
+        <div className="showTutorialRight">
+          {isTouchScreen ? (
+            <>
+              <p>
+                <span>Toca en esta zona</span> para mostrar el siguiente anterior
+              </p>
+            </>
+          ) : (
+            <>
+              <p>
+                Haz <span>click en esta zona</span> o presiona la <span>flecha derecha</span> para mostrar el servicio
+                anterior
+              </p>
+            </>
+          )}
+        </div>
+
+        <div className="tutorialControls">
+          {!isTouchScreen ? (
+            <>
+              <p>
+                Presiona la tecla <span>K</span> o <span>P</span> para pausar o reanuar el tiempo
+              </p>
+            </>
+          ) : null}
+        </div>
       </div>
     </Servicios_TodosWrapper>
   )
