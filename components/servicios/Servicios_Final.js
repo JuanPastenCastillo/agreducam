@@ -13,7 +13,7 @@ export const Servicios_Final = ({ shouldShow = false, setShowIndex }) => {
   return (
     <Servicios_FinalWrapper shouldShow={shouldShow}>
       <span onClick={() => setShowIndex(-1)}>
-        <button>Volver a todos los servicios</button>
+        <button>Repetir los servicios</button>
       </span>
       <span onClick={handleMoveToContact}>
         <button>Contacto</button>
