@@ -184,7 +184,8 @@ export const INDEX_Servicios = () => {
         }}
       />
 
-      <Servicios_Todos shouldShow={showIndex === -1} />
+      <Servicios_Todos shouldShow={showIndex === -1} showIndex={showIndex}
+      />
 
       <Servicios_1 shouldShow={showIndex === 0} />
       <Servicios_2 shouldShow={showIndex === 1} />
