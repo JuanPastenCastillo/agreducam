@@ -59,7 +59,6 @@ export const Servicios_TodosWrapper = styled.div`
       right: 25%;
       bottom: 0;
       height: 5%;
-      /* width: 100%; */
       background-color: hsl(0, 100%, 50%, 0.4);
 
       display: flex;

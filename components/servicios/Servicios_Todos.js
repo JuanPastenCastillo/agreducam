@@ -71,14 +71,14 @@ export const Servicios_Todos = ({ shouldShow = true, showIndex }) => {
           {isTouchScreen ? (
             <>
               <p>
-                <span>Toca en esta zona</span> para mostrar el siguiente anterior
+                <span>Toca en esta zona</span> para mostrar el siguiente servicio
               </p>
             </>
           ) : (
             <>
               <p>
-                Haz <span>click en esta zona</span> o presiona la <span>flecha derecha</span> para mostrar el servicio
-                anterior
+                Haz <span>click en esta zona</span> o presiona la <span>flecha derecha</span> para mostrar el siguiente
+                servicio
               </p>
             </>
           )}
