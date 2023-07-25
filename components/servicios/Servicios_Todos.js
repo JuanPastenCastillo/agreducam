@@ -40,7 +40,10 @@ export const Servicios_Todos = ({ shouldShow = true, showIndex }) => {
   return (
     <Servicios_TodosWrapper
       shouldShow={shouldShow}
-      showTutorial={showTutorial}>
+      showTutorial={showTutorial}
+      isTouchScreen={isTouchScreen}
+
+    >
       <div>
         <h1>Todos los Servicios</h1>
         <h2>Servicio_1</h2>

@@ -65,7 +65,7 @@ export const Servicios_TodosWrapper = styled.div`
       align-items: center;
       justify-content: center;
 
-      opacity: ${({ showTutorial }) => (showTutorial ? "1" : "0")};
+      opacity: ${({ showTutorial, isTouchScreen }) => (showTutorial && !isTouchScreen ? "1" : "0")};
       transition: all 1s linear;
 
       & > p {
