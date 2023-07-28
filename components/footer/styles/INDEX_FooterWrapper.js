@@ -35,6 +35,11 @@ export const INDEX_FooterWrapper = styled.div`
 
   background-color: white;
   overflow:hidden;
+  
+  padding-top: 24px;
+  padding-bottom: 24px;
+  
+  
 
   & > :nth-child(1) {
     background: rgba(0, 0, 0, 0.65);
@@ -54,6 +59,11 @@ export const INDEX_FooterWrapper = styled.div`
 
     position: relative;
     z-index: 1001;
+    
+    box-shadow: 1px 2px 4px white;
+    
+    
+    
 
     & > *:not(:first-child):not(:last-child) {
       margin-bottom: 24px;

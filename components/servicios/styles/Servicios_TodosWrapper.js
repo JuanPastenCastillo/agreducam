@@ -72,7 +72,6 @@ export const Servicios_TodosWrapper = styled.div`
         text-align:center;
         & > span {
           font-weight: 800;
-          /* display: block; */
         }
       }
     }

@@ -12,10 +12,6 @@ export const INDEX_Footer = () => {
 
       <div className="waveCSS" />
 
-      {/* <div className="wave wave1" />
-      <div className="wave wave2" />
-      <div className="wave wave3" />
-      <div className="wave wave4" /> */}
     </INDEX_FooterWrapper>
   )
 }
