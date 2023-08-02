@@ -16,6 +16,8 @@ export const INDEX_NosotrosWrapper = styled.div`
     & > :nth-child(3),
     & > :nth-child(4){
       opacity: 0;
+      scale: 15%;
+      transform: translateY(50%);
     }
     
     .refComponent1Intersected,
@@ -23,6 +25,10 @@ export const INDEX_NosotrosWrapper = styled.div`
     .refComponent3Intersected,
     .refComponent4Intersected{
       opacity: 1;
+      scale: 100%;
+      transform: translateY(0%);
+      border-radius: 0px;
+      transition: all 1s ease-out;
     }
     
 
@@ -30,46 +36,46 @@ export const INDEX_NosotrosWrapper = styled.div`
       background-color: hsl(180, 100%, 17.3%);
       color: hsl(180, 100%, 93.9%);
 
-      transform: translateX(-50%);
+      
     }
 
     .refComponent1Intersected {
       background-color: hsl(180, 100%, 93.9%);
       color: hsl(180, 100%, 17.3%);
 
-      transform: translateX(0%);
+      /* transform: translateY(0%); */
 
-      transition: all 2s ease-in-out;
+      
     }
 
     & > :nth-child(2) {
       background-color: hsl(351, 100%, 85.7%);
       color: hsl(32.9, 100%, 40%);
 
-      transform: translateX(50%);
+      /* transform: translateX(50%); */
     }
 
     .refComponent2Intersected {
       background-color: hsl(32.9, 100%, 40%);
       color: hsl(351, 100%, 85.7%);
 
-      transform: translateX(0%);
-      transition: all 2s ease-in-out;
+      /* transform: translateX(0%); */
+      /* transition: all 2s ease-in-out; */
     }
 
     & > :nth-child(3) {
       background-color: hsl(213.9, 41.1%, 82%);
       color: hsl(282.1, 100%, 21.4%);
 
-      transform: translateX(-50%);
+      /* transform: translateX(-50%); */
     }
 
     .refComponent3Intersected {
       background-color: hsl(282.1, 100%, 21.4%);
       color: hsl(213.9, 41.1%, 82%);
 
-      transform: translateX(0%);
-      transition: all 2s ease-in-out;
+      /* transform: translateX(0%); */
+      /* transition: all 2s ease-in-out; */
       
     }
 
@@ -77,7 +83,7 @@ export const INDEX_NosotrosWrapper = styled.div`
       background-color: hsl(348, 83.3%, 17.1%);
       color: hsl(194.7, 53.3%, 79%);
 
-      transform: translateX(50%);
+      /* transform: translateX(50%); */
     }
 
     .refComponent4Intersected {
@@ -85,8 +91,8 @@ export const INDEX_NosotrosWrapper = styled.div`
 
       background-color: hsl(218.5, 79.2%, 96.1%);
       color: black;
-      transform: translateX(0%);
-      transition: all 2s ease-in-out;
+      /* transform: translateX(0%); */
+      /* transition: all 2s ease-in-out; */
     }
   }
 

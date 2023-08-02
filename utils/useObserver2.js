@@ -18,10 +18,7 @@ export const useObserver2 = (theRef = null, options = { threshols: 0.25, root: n
     } else {
       setIsIntersected(false)
     }
-
-
   }, [observedElement])
-
 
   return { intersected: isIntersected, allProperties: observedElement }
 }
