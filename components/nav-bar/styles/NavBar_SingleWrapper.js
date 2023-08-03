@@ -10,13 +10,22 @@ export const NavBar_SingleWrapper = styled.li`
 
   text-align: center;
   padding: 16px 45px;
+  
+  /* border: 1px solid white; */
+  
+
+  
+  
+  
 
   &.isActiveLink {
     border-style: solid;
-    box-shadow: 2px 3px 1px 3px #ebebeb;
+    box-shadow: 3px 3px 7px 2px #ebebeb;
   }
 
   &:hover {
-    box-shadow: 2px 3px 2px 3px #ebebeb;
+    /* box-shadow: 0px 0px 3px 2px #ebebeb; */
+    box-shadow: ${({ $isActiveLink }) => $isActiveLink ? `` : `0px 0px 7px 2px #ebebeb`};
+    
   }
 `

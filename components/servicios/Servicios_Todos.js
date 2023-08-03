@@ -20,7 +20,6 @@ export const Servicios_Todos = ({ shouldShow = true, showIndex }) => {
   useEffect(() => {
     const savedData = window.sessionStorage.getItem("agreducam_sessionStorage_tutorial_servicios")
     if (savedData) {
-      console.log("savedData:", savedData)
       setIsThisSessionTab(JSON.parse(savedData))
     }
   }, [])

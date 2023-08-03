@@ -35,7 +35,6 @@ export const INDEX_Servicios = () => {
     }
 
     if (showIndex === maxComponents - 1 && !toLeft) {
-      console.log("🟩showIndex:", showIndex)
       setShowIndex("final")
     }
   }

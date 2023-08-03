@@ -17,6 +17,9 @@ export const INDEX_NavBarWrapper = styled.header`
 
       display: flex;
       flex-wrap: wrap;
+      
+      gap:8px;
+      
 
       & > * {
         

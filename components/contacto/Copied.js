@@ -5,7 +5,7 @@ export const Copied = ({ isCopied = false }) => {
   return (
     <CopiedWrapper isCopied={isCopied}
     >
-      Copiado!
+      ¡Copiado!
     </CopiedWrapper>
   )
 }

@@ -1,7 +1,6 @@
 import styled from "styled-components"
 
 export const INDEX_ServiciosWrapper = styled.div`
-  border: 10px solid white;
   height: 100vh;
   position: relative;
   cursor: ${({ $changeTypeOfCursor }) =>
