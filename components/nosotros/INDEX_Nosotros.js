@@ -1,45 +1,11 @@
 "use client"
+import Nosotros_1 from "@/assets/images/Nosotros/Nosotros_1.png"
 import { useObserver2 } from "@/utils/useObserver2.js"
+import Image from "next/image.js"
 import { useRef } from "react"
 import { INDEX_NosotrosWrapper } from "./styles/INDEX_NosotrosWrapper.js"
 
 export const INDEX_Nosotros = () => {
-  // const pathRef = useRef(null)
-
-  // useEffect(() => {
-  //   if (pathRef !== null) {
-  //     let thePath = pathRef.current.firstElementChild.firstElementChild.firstElementChild
-  //     let pathLength = thePath.getTotalLength()
-  //     // console.log('pathLength:', pathLength)
-
-  //     // console.log('thePath:', thePath)
-
-  //     thePath.style.strokeDasharray = pathLength + " " + pathLength
-
-  //     thePath.style.strokeDashoffset = pathLength
-
-  //     const handleScroll = () => {
-  //       var scrollPercentage =
-  //         (document.documentElement.scrollTop + document.body.scrollTo) /
-  //         (document.documentElement.scrollHeight - document.documentElement.clientHeight)
-
-  //       var drawLength = pathLength * scrollPercentage
-
-  //       thePath.style.strokeDashoffset = pathLength - drawLength
-  //     }
-
-  //     console.log("Working")
-
-  //     window.addEventListener("scroll", handleScroll)
-
-  //     return () => {
-  //       window.removeEventListener("scroll", handleScroll)
-  //     }
-  //   }
-  // }, [pathRef])
-
-  const refComponent1 = useRef()
-  const { intersected: intersectedComponent1 } = useObserver2(refComponent1)
   const refComponent2 = useRef()
   const { intersected: intersectedComponent2 } = useObserver2(refComponent2)
   const refComponent3 = useRef()
@@ -47,59 +13,54 @@ export const INDEX_Nosotros = () => {
   const refComponent4 = useRef()
   const { intersected: intersectedComponent4 } = useObserver2(refComponent4)
 
-  // useEffect(() => {
-  //   const observingThis = refComponent4
-  //   setElements(observingThis)
-  // }, [setElements])
-
-  // useEffect(() => {
-  //   entries.forEach(x => {
-  //     if (x.isIntersecting) {
-  //       // console.log('X is intersecting! ✅', x.isIntersecting, x.target.textContent, x)
-
-  //     }
-  //   })
-
-  // }, [entries, observer])
-
-  // console.log('elementIsIntersected:', elementIsIntersected)
-
-  // const refComponent4 = useRef()
-
-  // useEffect(() => {
-  //   // console.log('refComponent4.current:', refComponent4.current)
-
-  //   const observer = new IntersectionObserver((x) => {
-  //     const entry = x[0]
-  //     setElementIsIntersected(entry.isIntersecting)
-
-  //   })
-  //   observer.observe(refComponent4.current)
-  // }, [])
-
   return (
     <INDEX_NosotrosWrapper>
       <div>
-        <h1>Aprendiendo cómo animar cosas según el scroll</h1>
-        <h2>Objetivos a lograr:</h2>
-        <ul>
-          <li>Aprender `Intersection Observer` → ✅ LOGRADO</li>
-          <li>Animar con el scroll: tanto hacia adelante como hacia atrás → ✅ LOGRADO</li>
-          <li>Aprender a animar elementos SVG</li>
-        </ul>
-      </div>
+        <div>
+          <h2>
+            Agreducam La Portada <span>es una Asociación Gremial de Dueños de Camiones fundada el año 2000</span>
+          </h2>
+          <p>
+            A la fecha cuenta con más de <span>40 vehículos</span> disponibles para entregar servicios las{" "}
+            <span>24 horas del día</span>, los <span>7 días de la semana</span>{" "}
+          </p>
 
-      <div>
-        <div
-          ref={refComponent1}
-          className={intersectedComponent1 && `refComponent1Intersected`}>
-          <h2>Animación con scroll: componente 1</h2>
+          <div>
+            <Image
+              src={Nosotros_1}
+              alt="Flota de camiones"
+              style={{
+                width: "100%",
+                height: "auto"
+              }}
+            />
+          </div>
         </div>
+
         <div
           ref={refComponent2}
           className={intersectedComponent2 && `refComponent2Intersected`}>
-          <h2>Animación con scroll: componente 2</h2>
+          <h2>Este gremio está conformada por un directorio de 5 personas:</h2>
+
+          <ul>
+            <li>
+              <p>Presidente:</p> <span>Juan Pastén</span>
+            </li>
+            <li>
+              <p>Vice Presidente:</p> <span>Juan Pastén</span>
+            </li>
+            <li>
+              <p>Tesorero:</p> <span>Juan Pastén</span>
+            </li>
+            <li>
+              <p>Secretario:</p> <span>Juan Pastén</span>
+            </li>
+            <li>
+              <p>Encargado de Transportes:</p> <span>Juan Pastén</span>
+            </li>
+          </ul>
         </div>
+
         <div
           ref={refComponent3}
           className={intersectedComponent3 && `refComponent3Intersected`}>
@@ -113,9 +74,6 @@ export const INDEX_Nosotros = () => {
             ¿Llegaste hasta aquí? La respuesta es que: {intersectedComponent4 ? "YES!✅" : "Not yet buddy 💙"}{" "}
             (compruébalo viendo modificar el color del fondo)
           </p>
-        </div>
-        <div className="toObserve">
-          <h2>Animación con scroll: componente 5</h2>
         </div>
       </div>
     </INDEX_NosotrosWrapper>

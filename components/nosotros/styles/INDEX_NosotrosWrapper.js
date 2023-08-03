@@ -1,96 +1,135 @@
 import styled from "styled-components"
 
 export const INDEX_NosotrosWrapper = styled.div`
-  border: 7px solid green;
+  /* border: 7px solid green; */
   /* height: 200vh; */
 
-  & > :nth-child(2) {
-    & > * {
-      height: 100vh;
+  padding: 24px;
 
-      border: 2px solid yellow;
+  & > :nth-child(1) {
+    padding: 24px;
+
+    & > * {
+      /* height: 70vh; */
+
+      /* border: 2px solid yellow; */
     }
-    
-    & > :nth-child(1),
+
     & > :nth-child(2),
     & > :nth-child(3),
-    & > :nth-child(4){
+    & > :nth-child(4) {
+    }
+
+    & > * {
+      font-size: 1.7rem;
+    }
+
+    & > *:not(:last-child) {
+      margin-bottom: 64px;
+    }
+
+    & > *:not(:first-child) {
       opacity: 0;
       scale: 15%;
       transform: translateY(50%);
+      height: 70vh;
     }
-    
-    .refComponent1Intersected,
+
     .refComponent2Intersected,
     .refComponent3Intersected,
-    .refComponent4Intersected{
+    .refComponent4Intersected {
       opacity: 1;
       scale: 100%;
       transform: translateY(0%);
       border-radius: 0px;
       transition: all 1s ease-out;
     }
-    
 
     & > :nth-child(1) {
-      background-color: hsl(180, 100%, 17.3%);
-      color: hsl(180, 100%, 93.9%);
+      & > :nth-child(1) {
+        color: hsl(348, 83.3%, 57.1%);
+        filter: sepia(20%);
+        margin-bottom: 10%;
+        & > span {
+          color: white;
+        }
+      }
 
-      
-    }
+      & > p {
+        & > span {
+          color: hsl(348, 83.3%, 50.1%);
+          filter: sepia(10%);
+          white-space: pre;
+        }
+      }
 
-    .refComponent1Intersected {
-      background-color: hsl(180, 100%, 93.9%);
-      color: hsl(180, 100%, 17.3%);
-
-      /* transform: translateY(0%); */
-
-      
+      & > :last-child {
+        margin-top: 64px;
+      }
     }
 
     & > :nth-child(2) {
-      background-color: hsl(351, 100%, 85.7%);
-      color: hsl(32.9, 100%, 40%);
+      /* background-color: hsl(351, 100%, 85.7%); */
+      /* color: hsl(32.9, 100%, 40%); */
 
       /* transform: translateX(50%); */
+
+      & > :nth-child(1) {
+        margin-bottom: 24px;
+      }
+
+      & > :nth-child(2) {
+        list-style: none;
+
+        & > li {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+
+          & > p {
+            font-weight: 700;
+            color: crimson;
+            filter: sepia(20%);
+            text-decoration: underline;
+          }
+        }
+      }
     }
 
     .refComponent2Intersected {
-      background-color: hsl(32.9, 100%, 40%);
-      color: hsl(351, 100%, 85.7%);
+      /* background-color: hsl(32.9, 100%, 40%); */
+      /* color: hsl(351, 100%, 85.7%); */
 
       /* transform: translateX(0%); */
       /* transition: all 2s ease-in-out; */
     }
 
     & > :nth-child(3) {
-      background-color: hsl(213.9, 41.1%, 82%);
-      color: hsl(282.1, 100%, 21.4%);
+      /* background-color: hsl(213.9, 41.1%, 82%); */
+      /* color: hsl(282.1, 100%, 21.4%); */
 
       /* transform: translateX(-50%); */
     }
 
     .refComponent3Intersected {
-      background-color: hsl(282.1, 100%, 21.4%);
-      color: hsl(213.9, 41.1%, 82%);
+      /* background-color: hsl(282.1, 100%, 21.4%); */
+      /* color: hsl(213.9, 41.1%, 82%); */
 
       /* transform: translateX(0%); */
       /* transition: all 2s ease-in-out; */
-      
     }
 
     & > :nth-child(4) {
-      background-color: hsl(348, 83.3%, 17.1%);
-      color: hsl(194.7, 53.3%, 79%);
+      /* background-color: hsl(348, 83.3%, 17.1%); */
+      /* color: hsl(194.7, 53.3%, 79%); */
 
       /* transform: translateX(50%); */
     }
 
     .refComponent4Intersected {
-      border: 2px solid crimson;
+      /* border: 2px solid crimson; */
 
-      background-color: hsl(218.5, 79.2%, 96.1%);
-      color: black;
+      /* background-color: hsl(218.5, 79.2%, 96.1%); */
+      /* color: black; */
       /* transform: translateX(0%); */
       /* transition: all 2s ease-in-out; */
     }
