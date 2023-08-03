@@ -27,12 +27,18 @@ export const INDEX_NosotrosWrapper = styled.div`
     & > *:not(:last-child) {
       margin-bottom: 64px;
     }
+    
+    
+    & > :nth-child(3),
+    & > :nth-child(4){
+      height: 70vh;
+    }
 
     & > *:not(:first-child) {
       opacity: 0;
       scale: 15%;
       transform: translateY(50%);
-      height: 70vh;
+      /* height: 70vh; */
     }
 
     .refComponent2Intersected,
@@ -91,6 +97,20 @@ export const INDEX_NosotrosWrapper = styled.div`
             filter: sepia(20%);
             text-decoration: underline;
           }
+          
+          @media (max-width:850px) {
+            display: block;
+            margin-bottom: 32px;
+            
+            & > *:not(:last-child){
+            
+              
+              
+            }
+            
+          }
+          
+          
         }
       }
     }

@@ -64,16 +64,16 @@ export const INDEX_Nosotros = () => {
         <div
           ref={refComponent3}
           className={intersectedComponent3 && `refComponent3Intersected`}>
-          <h2>Animación con scroll: componente 3</h2>
+          <h2>Componente 3</h2>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque enim illo cum vitae dolor, reiciendis dicta officiis aliquam beatae, veritatis sint animi!</p>
         </div>
         <div
           className={intersectedComponent4 && "refComponent4Intersected"}
           ref={refComponent4}>
-          <h2>Animación con scroll: componente 4</h2>
-          <p>
-            ¿Llegaste hasta aquí? La respuesta es que: {intersectedComponent4 ? "YES!✅" : "Not yet buddy 💙"}{" "}
-            (compruébalo viendo modificar el color del fondo)
-          </p>
+          <h2>Ccomponente 4</h2>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque enim illo cum vitae dolor, reiciendis dicta officiis aliquam beatae, veritatis sint animi!</p>
+
+
         </div>
       </div>
     </INDEX_NosotrosWrapper>
