@@ -5,7 +5,10 @@ export const INDEX_ContactWrapper = styled.div`
   margin: 24px;
   margin-inline: 16px;
 
-  height: 50vh;
+  height: 70vh;
+  /* height:100%; */
+  /* border: 2px solid crimson; */
+  
 
   border-radius: 24px;
   position: relative;
@@ -21,7 +24,7 @@ export const INDEX_ContactWrapper = styled.div`
     background: ${({ isHover }) =>
     isHover
       ? `linear-gradient(45deg, transparent 5%, ${COLORS.HOVER} 50%, transparent 90%)`
-      : `linear-gradient(45deg, transparent 5%, ${COLORS.DEFAULT} 50%, transparent 90%)`};
+      : `linear-gradient(320deg, transparent 5%, ${COLORS.DEFAULT} 50%, transparent 90%)`};
 
     border-radius: inherit;
     content: "";

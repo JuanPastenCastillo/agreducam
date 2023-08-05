@@ -34,7 +34,9 @@ export const INDEX_NavBar = () => {
   const { windowSize } = useCheckUserWidth()
 
   return (
-    <INDEX_NavBarWrapper className={thePathname === "/nosotros" ? "" : "isNotHome"} >
+    <INDEX_NavBarWrapper className={thePathname === "/nosotros" ? "" : "isNotHome"}
+      $isServices={thePathname === "/servicios"}
+    >
       <nav>
         <ul>
           {LINKS.map(({ label, route }, i) => {

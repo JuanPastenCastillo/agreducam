@@ -3,15 +3,13 @@ import styled from "styled-components"
 export const INDEX_ServiciosWrapper = styled.div`
   padding: 24px;
   & > :nth-child(1) {
-    padding: 24px;
-
     & > :nth-child(2),
     & > :nth-child(3),
     & > :nth-child(4) {
     }
 
     & > * {
-      font-size: 1.7rem;
+      font-size: clamp(1.7rem, 7vw, 2.7rem);
     }
 
     & > *:not(:last-child) {
@@ -41,7 +39,8 @@ export const INDEX_ServiciosWrapper = styled.div`
 
     & > :nth-child(1) {
       & > :nth-child(1) {
-        color: hsl(348, 83.3%, 57.1%);
+        text-decoration: underline;
+        text-decoration-color: hsl(348, 83.3%, 57.1%);
         filter: sepia(20%);
         margin-bottom: 10%;
         & > span {
@@ -49,11 +48,26 @@ export const INDEX_ServiciosWrapper = styled.div`
         }
       }
 
-      & > p {
-        & > span {
+      & > ol {
+        margin-bottom: 96px;
+
+        & > *:not(:last-child) {
+          margin-bottom: 8px;
+        }
+
+        & > li {
           color: hsl(348, 83.3%, 50.1%);
           filter: sepia(10%);
-          white-space: pre;
+          list-style: inside;
+          list-style-type: decimal;
+
+          & > span {
+            color: white;
+          }
+
+          &::marker {
+            color: white;
+          }
         }
       }
 
@@ -65,29 +79,38 @@ export const INDEX_ServiciosWrapper = styled.div`
     & > :nth-child(2) {
       & > :nth-child(1) {
         margin-bottom: 24px;
+        
+        
+        & > span {
+          color: hsl(348, 83.3%, 57.1%);
+          filter: sepia(20%);
+          
+          text-decoration: underline;
+          
+        }
       }
 
       & > :nth-child(2) {
-        list-style: none;
-
+        & > *:not(:last-child){
+          margin-bottom: 8px;
+        }
+        
         & > li {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
+          list-style: inside;
 
-          & > p {
+          & > span {
             font-weight: 700;
             color: crimson;
             filter: sepia(20%);
-            text-decoration: underline;
           }
 
-          @media (max-width: 850px) {
+          /* @media (max-width: 850px) {
             display: block;
             margin-bottom: 32px;
 
             & > *:not(:last-child) {
             }
-          }
+          } */
         }
       }
     }
