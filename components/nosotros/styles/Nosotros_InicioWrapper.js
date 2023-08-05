@@ -68,7 +68,8 @@ export const Nosotros_InicioWrapper = styled.div`
       background-color: hsl(0, 100%, 100%, 0.7);
       /* border: 2px solid white; */
       
-      height: 100%;
+      /* height: 100%; */
+      height: calc(100% - 11%);
 
       display: flex;
       align-items: center;
@@ -96,10 +97,10 @@ export const Nosotros_InicioWrapper = styled.div`
 
     & > .tutorialControls {
       position: absolute;
-      left: 25%;
-      right: 25%;
+      left: 0%;
+      right: 0%;
       bottom: 0;
-      height: 5%;
+      height: 11%;
       background-color: hsl(0, 100%, 100%, 0.7);
 
       display: flex;

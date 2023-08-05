@@ -41,27 +41,27 @@ export const INDEX_NavBarWrapper = styled.header`
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    
 
-    box-shadow: hsl(348, 83.3%, 47.1%, 0.25) 0px 54px 55px, hsl(348, 83.3%, 47.1%, 0.12) 0px -12px 30px,
-      hsl(348, 83.3%, 47.1%, 0.12) 0px 4px 6px, hsl(348, 83.3%, 47.1%, 0.17) 0px 12px 13px,
-      hsl(348, 83.3%, 47.1%, 0.09) 0px -3px 5px;
+    &.isActiveLink {
+      box-shadow: hsl(348, 83.3%, 47.1%, 0.25) 0px 54px 55px, hsl(348, 83.3%, 47.1%, 0.12) 0px -12px 30px,
+        hsl(348, 83.3%, 47.1%, 0.12) 0px 4px 6px, hsl(348, 83.3%, 47.1%, 0.17) 0px 12px 13px,
+        hsl(348, 83.3%, 47.1%, 0.09) 0px -3px 5px ;
+    }
 
     &:focus {
-      outline: none;
-       
+      
+
       box-shadow: hsl(180, 100%, 27.3%, 0.25) 0px 54px 55px, hsl(180, 100%, 27.3%, 0.12) 0px -12px 30px,
         hsl(180, 100%, 27.3%, 0.12) 0px 4px 6px, hsl(180, 100%, 27.3%, 0.17) 0px 12px 13px,
         hsl(180, 100%, 27.3%, 0.09) 0px -3px 5px;
     }
-    
-    &:hover{
+
+    &:hover {
       box-shadow: hsl(0, 0%, 92.2%, 0.25) 0px 54px 55px, hsl(0, 0%, 92.2%, 0.12) 0px -12px 30px,
-        hsl(0, 0%, 92.2%, 0.12) 0px 4px 6px, hsl(0, 0%, 92.2%, 0.17) 0px 12px 13px,
-        hsl(0, 0%, 92.2%, 0.09) 0px -3px 5px;
-      
-      
+        hsl(0, 0%, 92.2%, 0.12) 0px 4px 6px, hsl(0, 0%, 92.2%, 0.17) 0px 12px 13px, hsl(0, 0%, 92.2%, 0.09) 0px -3px 5px;
     }
-    
 
     & > :nth-child(1) {
       border-radius: 8px;

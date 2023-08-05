@@ -75,7 +75,6 @@ export const INDEX_ContactWrapper = styled.div`
         cursor: pointer;
         
         &:focus{
-          outline:none;
           &::before,
           &::after{
             border-color: ${COLORS.FOCUS};
@@ -114,7 +113,6 @@ export const INDEX_ContactWrapper = styled.div`
           border-top-color: transparent;
           width: 100%;
           height:120%;
-          /* height: 1em; */
           transform: rotate(-1deg);
           opacity: 0.5;
           border-radius: 50%;

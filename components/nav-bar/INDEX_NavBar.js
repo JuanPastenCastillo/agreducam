@@ -34,7 +34,7 @@ export const INDEX_NavBar = () => {
   const { windowSize } = useCheckUserWidth()
 
   return (
-    <INDEX_NavBarWrapper className={thePathname === "/nosotros" ? "" : "isNotHome"}>
+    <INDEX_NavBarWrapper className={thePathname === "/nosotros" ? "" : "isNotHome"} >
       <nav>
         <ul>
           {LINKS.map(({ label, route }, i) => {
@@ -56,7 +56,9 @@ export const INDEX_NavBar = () => {
       <div
         onClick={handleMoveToServices}
         onKeyDown={handleMoveToServices}
-        tabIndex={1}>
+        tabIndex={1}
+        className={thePathname === "/servicios" && "isActiveLink"}
+      >
         <Image
           src={AGREDUCAM_Logo}
           alt="Logo de Agreducam"

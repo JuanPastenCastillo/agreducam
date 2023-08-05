@@ -12,17 +12,18 @@ export const NavBar_SingleWrapper = styled.li`
   text-align: center;
   padding: 16px 45px;
 
+  &:focus-within {
+    box-shadow: 3px 3px 7px 2px ${COLORS.FOCUS} ;
+  }
+  
   &.isActiveLink {
     border-style: solid;
-    box-shadow: 3px 3px 7px 2px ${COLORS.ACTIVE};
+    box-shadow: 3px 3px 7px 2px ${COLORS.ACTIVE} ;
   }
 
   &:hover {
     box-shadow: ${({ $isActiveLink }) => ($isActiveLink ? `` : `0px 0px 7px 2px ${COLORS.HOVER}`)};
   }
 
-  &:focus {
-    box-shadow: 3px 3px 7px 2px ${COLORS.FOCUS};
-    outline: none;
-  }
+  
 `
