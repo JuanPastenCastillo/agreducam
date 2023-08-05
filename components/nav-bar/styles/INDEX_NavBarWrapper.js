@@ -3,8 +3,8 @@ import styled from "styled-components"
 export const INDEX_NavBarWrapper = styled.header`
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  justify-content: space-evenly;
+  /* flex-direction: column; */
   flex-wrap: wrap;
   gap: 20px;
   padding: 16px;
@@ -12,29 +12,28 @@ export const INDEX_NavBarWrapper = styled.header`
   position: relative;
 
   & > :nth-child(1) {
+    order: 2;
     & > :nth-child(1) {
       border-radius: 4px;
 
       display: flex;
       flex-wrap: wrap;
-      
-      gap:8px;
-      
+
+      gap: 8px;
 
       & > * {
-        
-        
         flex: 1;
-        
-        
-        
       }
     }
   }
 
   & > :nth-child(2) {
-    min-width: 11%;
-    max-width: 500px;
+    position: relative;
+    z-index:99;
+    
+    min-width: 15%;
+    max-width: 115px;
+    box-shadow: none;
 
     cursor: pointer;
     border-radius: 8px;
@@ -67,19 +66,28 @@ export const INDEX_NavBarWrapper = styled.header`
       border-radius: inherit;
     } */
   }
-
-  &.isNotHome {
-    flex-direction: row;
-    justify-content: space-evenly;
-
-    & > :nth-child(1) {
-      order: 2;
+  
+  
+  @media (max-width: 739px) {
+    
+    
+    & > :nth-child(1){
+      
+      &> :nth-child(1){
+        
+        & > :nth-child(2){
+          /* border: 2px solid crimson; */
+          order:3;
+          
+        }
+      }
+      
     }
-
-    & > :nth-child(2) {
-      min-width: 15%;
-      max-width: 115px;
-      box-shadow: none;
-    }
+    
   }
+  
+  
+  
+
+  
 `

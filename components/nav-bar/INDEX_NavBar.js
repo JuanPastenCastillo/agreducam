@@ -22,14 +22,15 @@ const LINKS = [
 
 export const INDEX_NavBar = () => {
   const thePathname = usePathname()
+  console.log('thePathname:', thePathname)
   const theRouter = useRouter()
 
-  const handleMoveToHome = () => {
-    theRouter.push("/home")
+  const handleMoveToServices = () => {
+    theRouter.push("/servicios")
   }
 
   return (
-    <INDEX_NavBarWrapper className={thePathname === "/" ? "" : "isNotHome"}>
+    <INDEX_NavBarWrapper className={thePathname === "/nosotros" ? "" : "isNotHome"}>
       <nav>
         <ul>
           {LINKS.map(({ label, route }) => {
@@ -45,7 +46,7 @@ export const INDEX_NavBar = () => {
         </ul>
       </nav>
 
-      <div onClick={handleMoveToHome}>
+      <div onClick={handleMoveToServices}>
         <Image
           src={AGREDUCAM_Logo}
           alt="Logo de Agreducam"

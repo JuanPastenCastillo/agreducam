@@ -1,8 +1,10 @@
+import LaPortadaHome from '@/assets/images/LaPortadaHome.png'
+
 import { useCheckTouchScreen } from "@/utils/useCheckTouchScreen.js"
 import { useEffect, useState } from "react"
-import { Servicios_TodosWrapper } from "./styles/Servicios_TodosWrapper.js"
+import { Nosotros_InicioWrapper } from "./styles/Nosotros_InicioWrapper.js"
 
-export const Servicios_Todos = ({ shouldShow = true, showIndex }) => {
+export const Nosotros_Inicio = ({ shouldShow = true, showIndex }) => {
   const [showTutorial, setShowTutorial] = useState(false)
   const { isTouchScreen } = useCheckTouchScreen()
 
@@ -37,19 +39,36 @@ export const Servicios_Todos = ({ shouldShow = true, showIndex }) => {
   }, [showIndex])
 
   return (
-    <Servicios_TodosWrapper
+    <Nosotros_InicioWrapper
+      image={LaPortadaHome.src}
+
       shouldShow={shouldShow}
       showTutorial={showTutorial}
       isTouchScreen={isTouchScreen}
 
     >
+      {/* 
+      //!FH0
+      
+      */}
+
       <div>
-        <h1>Todos los Servicios</h1>
-        <h2>Servicio_1</h2>
-        <h2>Servicio_2</h2>
-        <h2>Servicio_3</h2>
-        <h2> MAIN_FIRST</h2>
+        <h1>Presentación de la empresa</h1>
+        <h2>Bla bla bla</h2>
       </div>
+
+      <div>
+        <video
+          autoPlay
+          loop
+          muted
+          disablePictureInPicture
+          controlsList="nodownload"
+          src={"TopDownBeach-D.mp4"}
+          type="video/mp4"
+        />
+      </div>
+
 
       <div className="tutorial">
         <div className={"showTutorialLeft"}>
@@ -96,6 +115,6 @@ export const Servicios_Todos = ({ shouldShow = true, showIndex }) => {
           ) : null}
         </div>
       </div>
-    </Servicios_TodosWrapper>
+    </Nosotros_InicioWrapper>
   )
 }

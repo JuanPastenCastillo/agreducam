@@ -1,81 +1,201 @@
 "use client"
-import Nosotros_1 from "@/assets/images/Nosotros/Nosotros_1.png"
-import { useObserver2 } from "@/utils/useObserver2.js"
-import Image from "next/image.js"
-import { useRef } from "react"
+import { ANIMATION_DURATION } from "@/utils/VARIABLES.js"
+import { useEffect, useRef, useState } from "react"
+import { Nosotros_1 } from "./Nosotros_1.js"
+import { Nosotros_2 } from "./Nosotros_2.js"
+import { Nosotros_3 } from "./Nosotros_3.js"
+import { Nosotros_4 } from "./Nosotros_4.js"
+import { Nosotros_5 } from "./Nosotros_5.js"
+import { Nosotros_Final } from "./Nosotros_Final.js"
+import { Nosotros_Inicio } from "./Nosotros_Inicio.js"
 import { INDEX_NosotrosWrapper } from "./styles/INDEX_NosotrosWrapper.js"
 
 export const INDEX_Nosotros = () => {
-  const refComponent2 = useRef()
-  const { intersected: intersectedComponent2 } = useObserver2(refComponent2)
-  const refComponent3 = useRef()
-  const { intersected: intersectedComponent3 } = useObserver2(refComponent3)
-  const refComponent4 = useRef()
-  const { intersected: intersectedComponent4 } = useObserver2(refComponent4)
+  const [maxComponents, setMaxComponents] = useState(5)
+  const [showIndex, setShowIndex] = useState(-1)
+  const [pause, setPause] = useState(true)
+  const [milliseconds, setMilliseconds] = useState(0)
+  const [finalServiceSelection, setFinalServiceSelection] = useState()
+
+  // Create a function that updates the showIndex state variable by incrementing it by one and wrapping it around the number of components
+  const handleUpdateShowIndex = (toLeft = false) => {
+    if (showIndex > 0 && showIndex <= maxComponents - 1 && toLeft) {
+      setShowIndex((prevState) => (prevState - 1) % maxComponents)
+    }
+
+    if (showIndex === 0 && toLeft) {
+      setShowIndex((prevState) => prevState - 1)
+    }
+
+    if (showIndex === -1 && !toLeft) {
+      setShowIndex((prevState) => prevState + 1)
+    }
+
+    if (showIndex >= 0 && showIndex < maxComponents - 1 && !toLeft) {
+      setShowIndex((prevState) => (prevState + 1) % maxComponents)
+    }
+
+    if (showIndex === maxComponents - 1 && !toLeft) {
+      setShowIndex("final")
+    }
+  }
+
+  useEffect(() => {
+    if (showIndex === -1 || showIndex === "final") {
+      setPause(true)
+    }
+  }, [showIndex])
+
+  useEffect(() => {
+    if (pause === false && showIndex >= 0 && showIndex <= maxComponents - 1) {
+      function updateMilliseconds() {
+        setMilliseconds((prevMilliseconds) => prevMilliseconds + 1)
+      }
+
+      const interval = setInterval(updateMilliseconds, 1)
+      return () => clearInterval(interval)
+    }
+  }, [pause, showIndex])
+
+  useEffect(() => {
+    if (milliseconds === ANIMATION_DURATION.timeToNextComponent && showIndex >= 0 && showIndex <= maxComponents - 1) {
+      handleUpdateShowIndex()
+      setMilliseconds(0)
+    }
+  }, [milliseconds, showIndex])
+
+  const handlePauseWithClick = (e) => {
+    if (e.detail === 1 && showIndex >= 0 && showIndex <= maxComponents - 1) {
+      setPause((prevState) => !prevState)
+    }
+  }
+
+  const handleClickRightOrLeft = (event) => {
+    const leftPart = (25 * window.innerWidth) / 100
+    if (event.clientX <= leftPart) {
+      handleUpdateShowIndex(true)
+      setMilliseconds(0)
+      setPause(false)
+    }
+
+    const rightPart = (75 * window.innerWidth) / 100
+    if (event.clientX >= rightPart) {
+      handleUpdateShowIndex()
+      setMilliseconds(0)
+      setPause(false)
+    }
+  }
+
+  const [changeTypeOfCursor, setChangeTypeOfCursor] = useState("default")
+
+  const handleChangeCursor = (event) => {
+    const leftPart = (25 * window.innerWidth) / 100
+    if (event.clientX <= leftPart && showIndex >= 0 && typeof showIndex === "number") {
+      setChangeTypeOfCursor("left")
+    }
+
+    const rightPart = (75 * window.innerWidth) / 100
+    if (event.clientX >= rightPart && showIndex !== "final") {
+      setChangeTypeOfCursor("right")
+    }
+  }
+
+  const handleMoveCursor = (event) => {
+    const leftPart = (25 * window.innerWidth) / 100
+    if (showIndex >= 0 && typeof showIndex === "number" && event.clientX <= leftPart) {
+      setChangeTypeOfCursor("left")
+    }
+
+    const rightPart = (75 * window.innerWidth) / 100
+    if (event.clientX >= rightPart && showIndex !== "final") {
+      setChangeTypeOfCursor("right")
+    }
+
+    if (event.clientX <= leftPart === false && event.clientX >= rightPart === false) {
+      setChangeTypeOfCursor("default")
+    }
+  }
+
+  const handleDefaultCursor = () => {
+    setChangeTypeOfCursor("default")
+  }
+
+  useEffect(() => {
+    function handleKeyPress(event) {
+      if (event.code === "KeyK" || event.code === "KeyP") {
+        setPause((prevState) => !prevState)
+      }
+
+      if (event.code === "ArrowLeft") {
+        handleUpdateShowIndex(true)
+        setMilliseconds(0)
+        setPause(false)
+      }
+
+      if (event.code === "ArrowRight") {
+        handleUpdateShowIndex()
+        setMilliseconds(0)
+        setPause(false)
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyPress)
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress)
+    }
+  }, [showIndex])
+
+  const myComponentRef = useRef(null)
+
+  useEffect(() => {
+    if (myComponentRef.current) {
+      const position = myComponentRef.current.getBoundingClientRect().top + window.scrollY
+      const offset = 53
+      const scrollPosition = position
+      window.scroll({
+        top: scrollPosition,
+        behavior: "smooth"
+      })
+    }
+  }, [])
 
   return (
-    <INDEX_NosotrosWrapper>
-      <div>
-        <div>
-          <h2>
-            Agreducam La Portada <span>es una Asociación Gremial de Dueños de Camiones fundada el año 2000</span>
-          </h2>
-          <p>
-            A la fecha cuenta con más de <span>40 vehículos</span> disponibles para entregar servicios las{" "}
-            <span>24 horas del día</span>, los <span>7 días de la semana</span>{" "}
-          </p>
+    <INDEX_NosotrosWrapper
+      $shouldShow={showIndex}
+      $changeTypeOfCursor={changeTypeOfCursor}
+      onClick={(e) => {
+        handlePauseWithClick(e)
+        handleClickRightOrLeft(e)
+      }}
+      onMouseEnter={handleChangeCursor}
+      onMouseLeave={handleDefaultCursor}
+      onMouseMove={handleMoveCursor}
+      ref={myComponentRef}>
+      <div
+        style={{
+          width: `${showIndex >= 0 && showIndex <= maxComponents - 1
+            ? (milliseconds * 100) / ANIMATION_DURATION.timeToNextComponent
+            : 100
+            }% `
+        }}
+      />
 
-          <div>
-            <Image
-              src={Nosotros_1}
-              alt="Flota de camiones"
-              style={{
-                width: "100%",
-                height: "auto"
-              }}
-            />
-          </div>
-        </div>
+      <Nosotros_Inicio
+        shouldShow={showIndex === -1}
+        showIndex={showIndex}
+      />
 
-        <div
-          ref={refComponent2}
-          className={intersectedComponent2 && `refComponent2Intersected`}>
-          <h2>Este gremio está conformada por un directorio de 5 personas:</h2>
+      <Nosotros_1 shouldShow={showIndex === 0} />
+      <Nosotros_2 shouldShow={showIndex === 1} />
+      <Nosotros_3 shouldShow={showIndex === 2} />
+      <Nosotros_4 shouldShow={showIndex === 3} />
+      <Nosotros_5 shouldShow={showIndex === 4} />
 
-          <ul>
-            <li>
-              <p>Presidente:</p> <span>Juan Pastén</span>
-            </li>
-            <li>
-              <p>Vice Presidente:</p> <span>Juan Pastén</span>
-            </li>
-            <li>
-              <p>Tesorero:</p> <span>Juan Pastén</span>
-            </li>
-            <li>
-              <p>Secretario:</p> <span>Juan Pastén</span>
-            </li>
-            <li>
-              <p>Encargado de Transportes:</p> <span>Juan Pastén</span>
-            </li>
-          </ul>
-        </div>
-
-        <div
-          ref={refComponent3}
-          className={intersectedComponent3 && `refComponent3Intersected`}>
-          <h2>Componente 3</h2>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque enim illo cum vitae dolor, reiciendis dicta officiis aliquam beatae, veritatis sint animi!</p>
-        </div>
-        <div
-          className={intersectedComponent4 && "refComponent4Intersected"}
-          ref={refComponent4}>
-          <h2>Ccomponente 4</h2>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque enim illo cum vitae dolor, reiciendis dicta officiis aliquam beatae, veritatis sint animi!</p>
-
-
-        </div>
-      </div>
+      <Nosotros_Final
+        shouldShow={showIndex === "final"}
+        setFinalServiceSelection={setFinalServiceSelection}
+        setShowIndex={setShowIndex}
+      />
     </INDEX_NosotrosWrapper>
   )
 }

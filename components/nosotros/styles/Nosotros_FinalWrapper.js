@@ -10,13 +10,11 @@ const glowingButton85 = keyframes`
   100% {
     background-position: 0 0;
   }
-
-
 `
 
-export const Servicios_FinalWrapper = styled.div`
+export const Nosotros_FinalWrapper = styled.div`
   /* background-image: linear-gradient(0deg, hsl(124deg 100% 18%) 0%, hsl(197deg 95% 51%) 52%, hsl(270deg 91% 83%) 100%); */
-  background-color: black;
+  /* background-color: black; */
 
   display: flex;
   align-items: center;

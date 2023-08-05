@@ -1,7 +1,7 @@
 import { useRouter } from "next/navigation.js"
-import { Servicios_FinalWrapper } from "./styles/Servicios_FinalWrapper.js"
+import { Nosotros_FinalWrapper } from "./styles/Nosotros_FinalWrapper.js"
 
-export const Servicios_Final = ({ shouldShow = false, setShowIndex }) => {
+export const Nosotros_Final = ({ shouldShow = false, setShowIndex }) => {
 
   const { push } = useRouter()
 
@@ -9,15 +9,14 @@ export const Servicios_Final = ({ shouldShow = false, setShowIndex }) => {
     push("/contacto")
   }
 
-
   return (
-    <Servicios_FinalWrapper shouldShow={shouldShow}>
+    <Nosotros_FinalWrapper shouldShow={shouldShow}>
       <span onClick={() => setShowIndex(-1)}>
-        <button>Repetir los servicios</button>
+        <button>Ver otra vez</button>
       </span>
       <span onClick={handleMoveToContact}>
         <button>Contacto</button>
       </span>
-    </Servicios_FinalWrapper>
+    </Nosotros_FinalWrapper>
   )
 }

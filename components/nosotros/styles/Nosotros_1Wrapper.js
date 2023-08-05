@@ -1,8 +1,7 @@
 import styled from "styled-components"
 
-export const Servicios_2Wrapper = styled.div`
-  background-color: hsl(120, 100%, 15.1%);
 
+export const Nosotros_1Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,5 +11,7 @@ export const Servicios_2Wrapper = styled.div`
   transition:opacity 3500ms;
   position: absolute;
   inset: 0;
+  
 
+  
 `

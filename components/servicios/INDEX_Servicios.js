@@ -1,199 +1,81 @@
-import { ANIMATION_DURATION } from "@/utils/VARIABLES.js"
-import { useEffect, useRef, useState } from "react"
-import { Servicios_1 } from "./Servicios_1.js"
-import { Servicios_2 } from "./Servicios_2.js"
-import { Servicios_3 } from "./Servicios_3.js"
-import { Servicios_4 } from "./Servicios_4.js"
-import { Servicios_5 } from "./Servicios_5.js"
-import { Servicios_Final } from "./Servicios_Final.js"
-import { Servicios_Todos } from "./Servicios_Todos.js"
-import { INDEX_ServiciosWrapper } from "./styles/INDEX_ServiciosWrapper.js"
+"use client"
+import Nosotros_1 from "@/assets/images/Nosotros/Nosotros_1.png"
+import { useObserver2 } from "@/utils/useObserver2.js"
+import Image from "next/image.js"
+import { useRef } from "react"
+import { INDEX_ServiciosWrapper } from './styles/INDEX_ServiciosWrapper.js'
 
 export const INDEX_Servicios = () => {
-  const [maxComponents, setMaxComponents] = useState(5)
-  const [showIndex, setShowIndex] = useState(-1)
-  const [pause, setPause] = useState(true)
-  const [milliseconds, setMilliseconds] = useState(0)
-  const [finalServiceSelection, setFinalServiceSelection] = useState()
-
-  // Create a function that updates the showIndex state variable by incrementing it by one and wrapping it around the number of components
-  const handleUpdateShowIndex = (toLeft = false) => {
-    if (showIndex > 0 && showIndex <= maxComponents - 1 && toLeft) {
-      setShowIndex((prevState) => (prevState - 1) % maxComponents)
-    }
-
-    if (showIndex === 0 && toLeft) {
-      setShowIndex((prevState) => prevState - 1)
-    }
-
-    if (showIndex === -1 && !toLeft) {
-      setShowIndex((prevState) => prevState + 1)
-    }
-
-    if (showIndex >= 0 && showIndex < maxComponents - 1 && !toLeft) {
-      setShowIndex((prevState) => (prevState + 1) % maxComponents)
-    }
-
-    if (showIndex === maxComponents - 1 && !toLeft) {
-      setShowIndex("final")
-    }
-  }
-
-  useEffect(() => {
-    if (showIndex === -1 || showIndex === "final") {
-      setPause(true)
-    }
-  }, [showIndex])
-
-  useEffect(() => {
-    if (pause === false && showIndex >= 0 && showIndex <= maxComponents - 1) {
-      function updateMilliseconds() {
-        setMilliseconds((prevMilliseconds) => prevMilliseconds + 1)
-      }
-
-      const interval = setInterval(updateMilliseconds, 1)
-      return () => clearInterval(interval)
-    }
-  }, [pause, showIndex])
-
-  useEffect(() => {
-    if (milliseconds === ANIMATION_DURATION.timeToNextComponent && showIndex >= 0 && showIndex <= maxComponents - 1) {
-      handleUpdateShowIndex()
-      setMilliseconds(0)
-    }
-  }, [milliseconds, showIndex])
-
-  const handlePauseWithClick = (e) => {
-    if (e.detail === 1 && showIndex >= 0 && showIndex <= maxComponents - 1) {
-      setPause((prevState) => !prevState)
-    }
-  }
-
-  const handleClickRightOrLeft = (event) => {
-    const leftPart = (25 * window.innerWidth) / 100
-    if (event.clientX <= leftPart) {
-      handleUpdateShowIndex(true)
-      setMilliseconds(0)
-      setPause(false)
-    }
-
-    const rightPart = (75 * window.innerWidth) / 100
-    if (event.clientX >= rightPart) {
-      handleUpdateShowIndex()
-      setMilliseconds(0)
-      setPause(false)
-    }
-  }
-
-  const [changeTypeOfCursor, setChangeTypeOfCursor] = useState("default")
-
-  const handleChangeCursor = (event) => {
-    const leftPart = (25 * window.innerWidth) / 100
-    if (event.clientX <= leftPart && showIndex >= 0 && typeof showIndex === "number") {
-      setChangeTypeOfCursor("left")
-    }
-
-    const rightPart = (75 * window.innerWidth) / 100
-    if (event.clientX >= rightPart && showIndex !== "final") {
-      setChangeTypeOfCursor("right")
-    }
-  }
-
-  const handleMoveCursor = (event) => {
-    const leftPart = (25 * window.innerWidth) / 100
-    if (showIndex >= 0 && typeof showIndex === "number" && event.clientX <= leftPart) {
-      setChangeTypeOfCursor("left")
-    }
-
-    const rightPart = (75 * window.innerWidth) / 100
-    if (event.clientX >= rightPart && showIndex !== "final") {
-      setChangeTypeOfCursor("right")
-    }
-
-    if (event.clientX <= leftPart === false && event.clientX >= rightPart === false) {
-      setChangeTypeOfCursor("default")
-    }
-  }
-
-  const handleDefaultCursor = () => {
-    setChangeTypeOfCursor("default")
-  }
-
-  useEffect(() => {
-    function handleKeyPress(event) {
-      if (event.code === "KeyK" || event.code === "KeyP") {
-        setPause((prevState) => !prevState)
-      }
-
-      if (event.code === "ArrowLeft") {
-        handleUpdateShowIndex(true)
-        setMilliseconds(0)
-        setPause(false)
-      }
-
-      if (event.code === "ArrowRight") {
-        handleUpdateShowIndex()
-        setMilliseconds(0)
-        setPause(false)
-      }
-    }
-
-    document.addEventListener("keydown", handleKeyPress)
-    return () => {
-      document.removeEventListener("keydown", handleKeyPress)
-    }
-  }, [showIndex])
-
-  const myComponentRef = useRef(null)
-
-  useEffect(() => {
-    if (myComponentRef.current) {
-      const position = myComponentRef.current.getBoundingClientRect().top + window.scrollY
-      const offset = 53
-      const scrollPosition = position - offset
-      window.scroll({
-        top: scrollPosition,
-        behavior: "smooth"
-      })
-    }
-  }, [])
+  const refComponent2 = useRef()
+  const { intersected: intersectedComponent2 } = useObserver2(refComponent2)
+  const refComponent3 = useRef()
+  const { intersected: intersectedComponent3 } = useObserver2(refComponent3)
+  const refComponent4 = useRef()
+  const { intersected: intersectedComponent4 } = useObserver2(refComponent4)
 
   return (
-    <INDEX_ServiciosWrapper
-      $changeTypeOfCursor={changeTypeOfCursor}
-      onClick={(e) => {
-        handlePauseWithClick(e)
-        handleClickRightOrLeft(e)
-      }}
-      onMouseEnter={handleChangeCursor}
-      onMouseLeave={handleDefaultCursor}
-      onMouseMove={handleMoveCursor}
-      ref={myComponentRef}>
-      <div
-        style={{
-          width: `${showIndex >= 0 && showIndex <= maxComponents - 1
-            ? (milliseconds * 100) / ANIMATION_DURATION.timeToNextComponent
-            : 100
-            }% `
-        }}
-      />
+    <INDEX_ServiciosWrapper>
+      <div>
+        <div>
+          <h2>
+            SERVICIOS_AQUÍ
+          </h2>
+          <p>
+            A la fecha cuenta con más de <span>40 vehículos</span> disponibles para entregar servicios las{" "}
+            <span>24 horas del día</span>, los <span>7 días de la semana</span>{" "}
+          </p>
 
-      <Servicios_Todos
-        shouldShow={showIndex === -1}
-        showIndex={showIndex}
-      />
+          <div>
+            <Image
+              src={Nosotros_1}
+              alt="Flota de camiones"
+              style={{
+                width: "100%",
+                height: "auto"
+              }}
+            />
+          </div>
+        </div>
 
-      <Servicios_1 shouldShow={showIndex === 0} />
-      <Servicios_2 shouldShow={showIndex === 1} />
-      <Servicios_3 shouldShow={showIndex === 2} />
-      <Servicios_4 shouldShow={showIndex === 3} />
-      <Servicios_5 shouldShow={showIndex === 4} />
+        <div
+          ref={refComponent2}
+          className={intersectedComponent2 && `refComponent2Intersected`}>
+          <h2>Estamos conformados por un directorio de 5 personas:</h2>
 
-      <Servicios_Final
-        shouldShow={showIndex === "final"}
-        setFinalServiceSelection={setFinalServiceSelection}
-        setShowIndex={setShowIndex}
-      />
+          <ul>
+            <li>
+              <p>Presidente:</p> <span>Juan Pastén</span>
+            </li>
+            <li>
+              <p>Vice Presidente:</p> <span>Juan Pastén</span>
+            </li>
+            <li>
+              <p>Tesorero:</p> <span>Juan Pastén</span>
+            </li>
+            <li>
+              <p>Secretario:</p> <span>Juan Pastén</span>
+            </li>
+            <li>
+              <p>Encargado de Transportes:</p> <span>Juan Pastén</span>
+            </li>
+          </ul>
+        </div>
+
+        <div
+          ref={refComponent3}
+          className={intersectedComponent3 && `refComponent3Intersected`}>
+          <h2>Componente 3</h2>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque enim illo cum vitae dolor, reiciendis dicta officiis aliquam beatae, veritatis sint animi!</p>
+        </div>
+        <div
+          className={intersectedComponent4 && "refComponent4Intersected"}
+          ref={refComponent4}>
+          <h2>Ccomponente 4</h2>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque enim illo cum vitae dolor, reiciendis dicta officiis aliquam beatae, veritatis sint animi!</p>
+
+
+        </div>
+      </div>
     </INDEX_ServiciosWrapper>
   )
 }

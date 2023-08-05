@@ -1,8 +1,7 @@
 import styled from "styled-components"
 
+export const Nosotros_4Wrapper = styled.div`
 
-export const Servicios_3Wrapper = styled.div`
-  background-color: hsl(60, 100%, 10%);
 
   display: flex;
   align-items: center;
