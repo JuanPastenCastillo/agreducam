@@ -56,17 +56,22 @@ export const INDEX_ServiciosWrapper = styled.div`
         }
 
         & > li {
-          color: hsl(348, 83.3%, 50.1%);
-          filter: sepia(10%);
+          font-weight: 700;
+          color: hsl(348, 83.3%, 53.1%);
+          filter: sepia(20%);
+          
+          
           list-style: inside;
           list-style-type: decimal;
-
-          & > span {
+          
+          & > span{
             color: white;
+            font-weight: 500;
           }
 
           &::marker {
             color: white;
+            font-weight: 500;
           }
         }
       }
@@ -79,38 +84,28 @@ export const INDEX_ServiciosWrapper = styled.div`
     & > :nth-child(2) {
       & > :nth-child(1) {
         margin-bottom: 24px;
-        
-        
+
         & > span {
           color: hsl(348, 83.3%, 57.1%);
           filter: sepia(20%);
-          
           text-decoration: underline;
-          
         }
       }
 
       & > :nth-child(2) {
-        & > *:not(:last-child){
+        & > *:not(:last-child) {
           margin-bottom: 8px;
         }
-        
+
         & > li {
           list-style: inside;
 
           & > span {
             font-weight: 700;
-            color: crimson;
+            color: hsl(348, 83.3%, 53.1%);
             filter: sepia(20%);
+            white-space: pre;
           }
-
-          /* @media (max-width: 850px) {
-            display: block;
-            margin-bottom: 32px;
-
-            & > *:not(:last-child) {
-            }
-          } */
         }
       }
     }

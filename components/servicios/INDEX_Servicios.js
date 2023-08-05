@@ -32,11 +32,11 @@ export const INDEX_Servicios = () => {
           <h2>Alcance de entrega:</h2>
           <ol>
             <li>
-              Calama
+              <span>Ciudad y comuna de: </span>Calama y Mejillones
             </li>
-            <li>Mejillones</li>
-            <li>Generadores de Caraga en la Región</li>
-            <li>Faenas en varias regiones del norte</li>
+
+            <li>Generadores de Carga <span>en la Región</span></li>
+            <li>Faenas <span>en varias regiones del Norte</span></li>
           </ol>
 
           <div>
