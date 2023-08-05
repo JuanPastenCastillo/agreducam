@@ -1,4 +1,5 @@
 "use client"
+import { useCheckUserWidth } from "@/utils/useCheckUserWidth"
 import Image from "next/image.js"
 import { usePathname, useRouter } from "next/navigation.js"
 import AGREDUCAM_Logo from "../../assets/images/AGREDUCAM_Logo.webp"
@@ -22,31 +23,40 @@ const LINKS = [
 
 export const INDEX_NavBar = () => {
   const thePathname = usePathname()
-  console.log('thePathname:', thePathname)
   const theRouter = useRouter()
 
-  const handleMoveToServices = () => {
-    theRouter.push("/servicios")
+  const handleMoveToServices = (e) => {
+    if (e.type === "click" || e.code === "Enter") {
+      theRouter.push("/servicios")
+    }
   }
+
+  const { windowSize } = useCheckUserWidth()
 
   return (
     <INDEX_NavBarWrapper className={thePathname === "/nosotros" ? "" : "isNotHome"}>
       <nav>
         <ul>
-          {LINKS.map(({ label, route }) => {
+          {LINKS.map(({ label, route }, i) => {
+            let whichTabApply = windowSize >= 740 ? 0 : i === 0 ? 4 : i === 1 ? 6 : i === 2 && 5
+
             return (
               <NavBar_Single
                 pathName={thePathname}
                 route={route}
                 label={label}
                 key={label}
+                theTabIndex={whichTabApply}
               />
             )
           })}
         </ul>
       </nav>
 
-      <div onClick={handleMoveToServices}>
+      <div
+        onClick={handleMoveToServices}
+        onKeyDown={handleMoveToServices}
+        tabIndex={1}>
         <Image
           src={AGREDUCAM_Logo}
           alt="Logo de Agreducam"

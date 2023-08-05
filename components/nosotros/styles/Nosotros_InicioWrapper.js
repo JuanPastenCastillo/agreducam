@@ -1,22 +1,31 @@
 import styled from "styled-components"
 
 export const Nosotros_InicioWrapper = styled.div`
-  /* background: linear-gradient(270deg, rgba(35, 190, 202, 1), rgba(90, 106, 185, 1)); */
-  /* background-color: black; */
-
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   padding: 24px;
   transition: opacity 3500ms;
-  height: 100%;
-
+  
   opacity: ${({ shouldShow }) => (shouldShow ? `1` : `0`)};
 
   position: absolute;
   inset: 0;
   z-index: 2;
+  
+  & > :nth-child(1){
+    font-size: clamp(100%, 10vw, 4rem);
+    text-align:center;
+    
+    color:crimson;
+    filter:sepia(20%);
+    
+    & > span{
+      display:block;
+      color:white;
+    }
+  }
   
   
   & > :nth-child(2) {

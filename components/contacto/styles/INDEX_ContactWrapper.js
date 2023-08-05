@@ -1,26 +1,27 @@
+import { COLORS } from "@/assets/colors"
 import styled from "styled-components"
 
 export const INDEX_ContactWrapper = styled.div`
-  /* border: 7px solid crimson; */
-
-  /* padding: 24px; */
   margin: 24px;
   margin-inline: 16px;
 
   height: 50vh;
 
-  /* background-color: darkcyan; */
   border-radius: 24px;
-  /* height: 240px; */
   position: relative;
-  /* width:50%; */
+  
+  &:focus-within{
+    &:before{
+      background: linear-gradient(45deg, transparent 5%, ${COLORS.FOCUS} 50%, transparent 90%);
+    }
+  }
+  
 
   &:before {
-    /* background: linear-gradient(45deg, transparent 5%, hsl(348, 83.3%, 47.1%) 50%, transparent 90%); */
     background: ${({ isHover }) =>
     isHover
-      ? `linear-gradient(45deg, transparent 5%, darkcyan 50%, transparent 90%)`
-      : `linear-gradient(45deg, transparent 5%, hsl(348, 83.3%, 47.1%) 50%, transparent 90%)`};
+      ? `linear-gradient(45deg, transparent 5%, ${COLORS.HOVER} 50%, transparent 90%)`
+      : `linear-gradient(45deg, transparent 5%, ${COLORS.DEFAULT} 50%, transparent 90%)`};
 
     border-radius: inherit;
     content: "";
@@ -40,7 +41,6 @@ export const INDEX_ContactWrapper = styled.div`
 
     display: flex;
     flex-direction: column;
-    /* flex-wrap:wrap; */
     gap: 26px;
 
     & > h1 {
@@ -52,9 +52,7 @@ export const INDEX_ContactWrapper = styled.div`
         content: "";
         height: 7px;
         width: 100%;
-        /* background-color: crimson; */
 
-        background: ${({ isHover }) => (isHover ? "darkcyan" : "crimson")};
         border-top-right-radius: 8px;
         opacity: 0.5;
 
@@ -67,27 +65,23 @@ export const INDEX_ContactWrapper = styled.div`
     & > h2 {
       & > span {
         display: block;
-        /* overflow-x:auto; */
-        /* white-space: pre-wrap; */
-        /* word-break: break-all; */
-        /* word-wrap: break-word; */
-        /* overflow-wrap: break-word; */
         word-break: break-all;
-        
-        /* overflow: hidden; */
         margin-top: 8px;
-        /* overflow-x:hidden; */
-        /* white-space:break-word; */
-
-        /* white-space: pre-wrap; */
-        /* overflow-wrap: break-word; */
-
         position: relative;
         width: fit-content;
 
         z-index: 1;
 
         cursor: pointer;
+        
+        &:focus{
+          outline:none;
+          &::before,
+          &::after{
+            border-color: ${COLORS.FOCUS};
+          }
+          
+        }
 
         &::before {
           content: "";
@@ -97,7 +91,7 @@ export const INDEX_ContactWrapper = styled.div`
           top: -2px;
           border-width: 5px;
           border-style: solid;
-          border-color: crimson;
+          border-color: ${COLORS.DEFAULT};
           width: 110%;
           height:110%;
           transform: rotate(2deg);
@@ -115,7 +109,7 @@ export const INDEX_ContactWrapper = styled.div`
           padding: 11px;
           border-width: 1px;
           border-style: solid;
-          border-color: crimson;
+          border-color: ${COLORS.DEFAULT};
           border-left-color: transparent;
           border-top-color: transparent;
           width: 100%;
@@ -128,7 +122,7 @@ export const INDEX_ContactWrapper = styled.div`
 
         &:hover::after,
         &:hover::before {
-          border-color: darkcyan;
+          border-color: ${COLORS.HOVER};
         }
       }
     }

@@ -1,9 +1,14 @@
 import { useRouter } from "next/navigation.js"
 import { Nosotros_FinalWrapper } from "./styles/Nosotros_FinalWrapper.js"
 
-export const Nosotros_Final = ({ shouldShow = false, setShowIndex }) => {
+export const Nosotros_Final = ({ shouldShow = false, setShowIndex, setSeeAgain }) => {
 
   const { push } = useRouter()
+
+  const handleSeeAllAgain = () => {
+    setShowIndex(-1)
+    setSeeAgain(prevState => !prevState)
+  }
 
   const handleMoveToContact = () => {
     push("/contacto")
@@ -11,7 +16,7 @@ export const Nosotros_Final = ({ shouldShow = false, setShowIndex }) => {
 
   return (
     <Nosotros_FinalWrapper shouldShow={shouldShow}>
-      <span onClick={() => setShowIndex(-1)}>
+      <span onClick={handleSeeAllAgain}>
         <button>Ver otra vez</button>
       </span>
       <span onClick={handleMoveToContact}>

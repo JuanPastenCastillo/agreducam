@@ -13,9 +13,6 @@ const glowingButton85 = keyframes`
 `
 
 export const Nosotros_FinalWrapper = styled.div`
-  /* background-image: linear-gradient(0deg, hsl(124deg 100% 18%) 0%, hsl(197deg 95% 51%) 52%, hsl(270deg 91% 83%) 100%); */
-  /* background-color: black; */
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,6 +29,15 @@ export const Nosotros_FinalWrapper = styled.div`
 
   & > * {
     width: 75%;
+    
+    border-radius:10px;
+    border: 2px solid transparent;
+    
+    &:focus-within {
+      border: 2px solid white;
+      
+    }
+    
 
     & > * {
       width: 100%;
@@ -45,7 +51,7 @@ export const Nosotros_FinalWrapper = styled.div`
 
       border: none;
       outline: none;
-      border-radius: 10px;
+      border-radius: inherit;
 
       
 

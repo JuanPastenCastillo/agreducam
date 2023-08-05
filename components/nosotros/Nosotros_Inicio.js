@@ -1,5 +1,4 @@
-import LaPortadaHome from '@/assets/images/LaPortadaHome.png'
-
+import LaPortadaHome from "@/assets/images/LaPortadaHome.png"
 import { useCheckTouchScreen } from "@/utils/useCheckTouchScreen.js"
 import { useEffect, useState } from "react"
 import { Nosotros_InicioWrapper } from "./styles/Nosotros_InicioWrapper.js"
@@ -11,7 +10,7 @@ export const Nosotros_Inicio = ({ shouldShow = true, showIndex }) => {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setShowTutorial(true)
-    }, 11000)
+    }, 6000)
     return () => {
       clearTimeout(timeoutId)
     }
@@ -41,21 +40,12 @@ export const Nosotros_Inicio = ({ shouldShow = true, showIndex }) => {
   return (
     <Nosotros_InicioWrapper
       image={LaPortadaHome.src}
-
       shouldShow={shouldShow}
       showTutorial={showTutorial}
-      isTouchScreen={isTouchScreen}
-
-    >
-      {/* 
-      //!FH0
-      
-      */}
-
-      <div>
-        <h1>Presentación de la empresa</h1>
-        <h2>Bla bla bla</h2>
-      </div>
+      isTouchScreen={isTouchScreen}>
+      <h1>
+        Agreducam <span>La Portada</span>
+      </h1>
 
       <div>
         <video
@@ -68,7 +58,6 @@ export const Nosotros_Inicio = ({ shouldShow = true, showIndex }) => {
           type="video/mp4"
         />
       </div>
-
 
       <div className="tutorial">
         <div className={"showTutorialLeft"}>

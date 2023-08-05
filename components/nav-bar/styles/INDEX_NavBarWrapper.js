@@ -29,8 +29,8 @@ export const INDEX_NavBarWrapper = styled.header`
 
   & > :nth-child(2) {
     position: relative;
-    z-index:99;
-    
+    z-index: 99;
+
     min-width: 15%;
     max-width: 115px;
     box-shadow: none;
@@ -42,9 +42,26 @@ export const INDEX_NavBarWrapper = styled.header`
     align-items: center;
     justify-content: center;
 
-    box-shadow: rgba(255, 255, 255, 0.25) 0px 54px 55px, rgba(255, 255, 255, 0.12) 0px -12px 30px,
-      rgba(255, 255, 255, 0.12) 0px 4px 6px, rgba(255, 255, 255, 0.17) 0px 12px 13px,
-      rgba(255, 255, 255, 0.09) 0px -3px 5px;
+    box-shadow: hsl(348, 83.3%, 47.1%, 0.25) 0px 54px 55px, hsl(348, 83.3%, 47.1%, 0.12) 0px -12px 30px,
+      hsl(348, 83.3%, 47.1%, 0.12) 0px 4px 6px, hsl(348, 83.3%, 47.1%, 0.17) 0px 12px 13px,
+      hsl(348, 83.3%, 47.1%, 0.09) 0px -3px 5px;
+
+    &:focus {
+      outline: none;
+       
+      box-shadow: hsl(180, 100%, 27.3%, 0.25) 0px 54px 55px, hsl(180, 100%, 27.3%, 0.12) 0px -12px 30px,
+        hsl(180, 100%, 27.3%, 0.12) 0px 4px 6px, hsl(180, 100%, 27.3%, 0.17) 0px 12px 13px,
+        hsl(180, 100%, 27.3%, 0.09) 0px -3px 5px;
+    }
+    
+    &:hover{
+      box-shadow: hsl(0, 0%, 92.2%, 0.25) 0px 54px 55px, hsl(0, 0%, 92.2%, 0.12) 0px -12px 30px,
+        hsl(0, 0%, 92.2%, 0.12) 0px 4px 6px, hsl(0, 0%, 92.2%, 0.17) 0px 12px 13px,
+        hsl(0, 0%, 92.2%, 0.09) 0px -3px 5px;
+      
+      
+    }
+    
 
     & > :nth-child(1) {
       border-radius: 8px;
@@ -66,28 +83,15 @@ export const INDEX_NavBarWrapper = styled.header`
       border-radius: inherit;
     } */
   }
-  
-  
+
   @media (max-width: 739px) {
-    
-    
-    & > :nth-child(1){
-      
-      &> :nth-child(1){
-        
-        & > :nth-child(2){
+    & > :nth-child(1) {
+      & > :nth-child(1) {
+        & > :nth-child(2) {
           /* border: 2px solid crimson; */
-          order:3;
-          
+          order: 3;
         }
       }
-      
     }
-    
   }
-  
-  
-  
-
-  
 `

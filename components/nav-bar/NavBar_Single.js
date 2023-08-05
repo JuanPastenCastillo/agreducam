@@ -2,22 +2,25 @@
 import { useRouter } from "next/navigation.js"
 import { NavBar_SingleWrapper } from "./styles/NavBar_SingleWrapper.js"
 
-export const NavBar_Single = ({ pathName, route, label }) => {
+export const NavBar_Single = ({ pathName, route, label, theTabIndex }) => {
   const theRouter = useRouter()
-  const handleMoveUser = () => {
-    theRouter.push(route)
+  const handleMoveUser = (e) => {
+    if (e.type === "click" || e.code === "Enter") {
+      theRouter.push(route)
+    }
   }
 
   return (
     <NavBar_SingleWrapper
       className={pathName === route ? "isActiveLink" : ""}
       $isActiveLink={pathName === route}
-      onClick={handleMoveUser}>
+      onClick={handleMoveUser}
+      onKeyDown={handleMoveUser}
+      tabIndex={theTabIndex}>
       <p>{label}</p>
     </NavBar_SingleWrapper>
   )
 }
-
 
 /* 
 

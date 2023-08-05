@@ -15,15 +15,16 @@ export const INDEX_Contact = () => {
   const [isCopiedMail, setIsCopiedMail] = useState(false)
   const [isCopiedPhone, setIsCopiedPhone] = useState(false)
 
-
   const handleCopyText = (e, whichCopied) => {
-    navigator.clipboard.writeText(e.target.textContent)
+    if (e.type === "click" || e.code === "Enter") {
+      navigator.clipboard.writeText(e.target.textContent)
 
-    if (whichCopied === "email") {
-      setIsCopiedMail(true)
-    }
-    if (whichCopied === "phone") {
-      setIsCopiedPhone(true)
+      if (whichCopied === "email") {
+        setIsCopiedMail(true)
+      }
+      if (whichCopied === "phone") {
+        setIsCopiedPhone(true)
+      }
     }
   }
 
@@ -38,14 +39,10 @@ export const INDEX_Contact = () => {
         setIsCopiedPhone(false)
       }, 1000)
     }
-
-
-
   }, [isCopiedMail, isCopiedPhone])
 
   return (
     <INDEX_ContactWrapper
-      color="yellowgreen"
       isHover={isHover}>
       <div>
         <h1>Comunícate</h1>
@@ -54,24 +51,26 @@ export const INDEX_Contact = () => {
           <span
             onMouseEnter={handleOnMouseEnter}
             onMouseLeave={handleOnMouseLeave}
-            onClick={(e) => handleCopyText(e, "email")}>
+            onClick={(e) => handleCopyText(e, "email")}
+            onKeyDown={(e) => handleCopyText(e, "email")}
+            tabIndex={0}
+          >
             contacto@Agreducam.com
-
           </span>
-          <Copied isCopied={isCopiedMail}
-          />
+          <Copied isCopied={isCopiedMail} />
         </h2>
         <h2>
           Teléfono:{" "}
           <span
             onMouseEnter={handleOnMouseEnter}
             onMouseLeave={handleOnMouseLeave}
-            onClick={(e) => handleCopyText(e, "phone")}>
+            onClick={(e) => handleCopyText(e, "phone")}
+            onKeyDown={(e) => handleCopyText(e, "email")}
+            tabIndex={0}
+          >
             +569 5555 5555
-
           </span>
-          <Copied isCopied={isCopiedPhone}
-          />
+          <Copied isCopied={isCopiedPhone} />
         </h2>
       </div>
 

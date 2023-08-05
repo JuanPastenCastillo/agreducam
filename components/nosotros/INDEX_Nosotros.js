@@ -15,7 +15,7 @@ export const INDEX_Nosotros = () => {
   const [showIndex, setShowIndex] = useState(-1)
   const [pause, setPause] = useState(true)
   const [milliseconds, setMilliseconds] = useState(0)
-  const [finalServiceSelection, setFinalServiceSelection] = useState()
+  const [seeAgain, setSeeAgain] = useState(false)
 
   // Create a function that updates the showIndex state variable by incrementing it by one and wrapping it around the number of components
   const handleUpdateShowIndex = (toLeft = false) => {
@@ -150,7 +150,6 @@ export const INDEX_Nosotros = () => {
   useEffect(() => {
     if (myComponentRef.current) {
       const position = myComponentRef.current.getBoundingClientRect().top + window.scrollY
-      const offset = 53
       const scrollPosition = position
       window.scroll({
         top: scrollPosition,
@@ -158,6 +157,15 @@ export const INDEX_Nosotros = () => {
       })
     }
   }, [])
+
+  useEffect(() => {
+    const position = myComponentRef.current.getBoundingClientRect().top + window.scrollY
+    const scrollPosition = position
+    window.scroll({
+      top: scrollPosition,
+      behavior: "smooth"
+    })
+  }, [seeAgain])
 
   return (
     <INDEX_NosotrosWrapper
@@ -174,8 +182,8 @@ export const INDEX_Nosotros = () => {
       <div
         style={{
           width: `${showIndex >= 0 && showIndex <= maxComponents - 1
-            ? (milliseconds * 100) / ANIMATION_DURATION.timeToNextComponent
-            : 100
+              ? (milliseconds * 100) / ANIMATION_DURATION.timeToNextComponent
+              : 100
             }% `
         }}
       />
@@ -193,8 +201,9 @@ export const INDEX_Nosotros = () => {
 
       <Nosotros_Final
         shouldShow={showIndex === "final"}
-        setFinalServiceSelection={setFinalServiceSelection}
         setShowIndex={setShowIndex}
+        setSeeAgain={setSeeAgain}
+
       />
     </INDEX_NosotrosWrapper>
   )

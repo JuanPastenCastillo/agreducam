@@ -2,7 +2,8 @@
 import styled from "styled-components"
 
 export const INDEX_NosotrosWrapper = styled.div`
-  height: 100vh;
+  height:${({ $shouldShow }) => $shouldShow === -1 ? "clamp(40vw, 55rem, 100vw)" : "100vh"};
+  
   position: relative;
   cursor: ${({ $changeTypeOfCursor }) =>
     $changeTypeOfCursor === "right"
