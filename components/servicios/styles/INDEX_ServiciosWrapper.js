@@ -16,19 +16,24 @@ export const INDEX_ServiciosWrapper = styled.div`
     & > *:not(:last-child) {
       margin-bottom: 64px;
     }
+    
 
     & > *:not(:first-child) {
       opacity: 0;
-      scale: 15%;
-      transform: translateY(50%);
+    }
+    
+    & > :nth-child(2){
+      transform: translateX(100%);
+    }
+    
+    & > :nth-child(3){
+      transform: translateX(-100%);
     }
 
     .refComponent2Intersected,
     .refComponent3Intersected {
       opacity: 1;
-      scale: 100%;
-      transform: translateY(0%);
-      border-radius: 0px;
+      transform: translateX(0%);
       transition: all 1s ease-out;
     }
 
