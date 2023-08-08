@@ -1,7 +1,5 @@
 "use client"
-import Nosotros_1 from "@/assets/images/Nosotros/Nosotros_1.png"
 import { useObserver } from "@/utils/useObserver.js"
-import Image from "next/image.js"
 import Link from "next/link.js"
 import { useEffect, useRef, useState } from "react"
 import { Copied } from "../contacto/Copied.js"
@@ -82,15 +80,15 @@ export const INDEX_Servicios = () => {
         PARALLAX HERE
         */}
 
-          <div>
-            <Image
+          <div className="parallax bg">
+            {/* <Image
               src={Nosotros_1}
               alt="Flota de camiones"
               style={{
                 width: "100%",
                 height: "auto"
               }}
-            />
+            /> */}
           </div>
         </div>
 
