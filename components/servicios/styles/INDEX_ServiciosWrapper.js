@@ -100,11 +100,11 @@ export const INDEX_ServiciosWrapper = styled.div`
 
       & > :last-child {
         margin-top: 64px;
-        height: 40vh;
+        height: 60vh;
         position: relative;
         background: linear-gradient(180deg, hsl(0, 0%, 0%) 1%, transparent 50%, hsl(0, 0%, 0%) 99%), url("Servicios.jpg");
         background-attachment: fixed;
-        background-position: 26% 110%;
+        background-position: 26% 100%;
         background-repeat: no-repeat;
         background-size: cover;
         margin-inline:-24px ;
