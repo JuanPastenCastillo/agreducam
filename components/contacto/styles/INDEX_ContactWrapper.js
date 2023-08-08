@@ -4,18 +4,18 @@ import styled from "styled-components"
 export const INDEX_ContactWrapper = styled.div`
   margin: 24px;
   margin-inline: 16px;
-
-  height: 70vh;
-  /* height:100%; */
-  /* border: 2px solid crimson; */
+  height: 100vh;
+  font-size: clamp(0.1rem, 6vw, 1.8rem);
   
-
   border-radius: 24px;
   position: relative;
   
+  /* border: 2px solid crimson; */
+  
+  
   &:focus-within{
     &:before{
-      background: linear-gradient(45deg, transparent 5%, ${COLORS.FOCUS} 50%, transparent 90%);
+      background: linear-gradient(320deg, transparent 5%, ${COLORS.FOCUS} 50%, transparent 90%);
     }
   }
   
@@ -23,8 +23,8 @@ export const INDEX_ContactWrapper = styled.div`
   &:before {
     background: ${({ isHover }) =>
     isHover
-      ? `linear-gradient(45deg, transparent 5%, ${COLORS.HOVER} 50%, transparent 90%)`
-      : `linear-gradient(320deg, transparent 5%, ${COLORS.DEFAULT} 50%, transparent 90%)`};
+      ? `linear-gradient(320deg, transparent 5%, ${COLORS.HOVER} 50%, transparent 90%)`
+      : `linear-gradient(320deg, transparent 20%, ${COLORS.DEFAULT} 50%, transparent 80%)`};
 
     border-radius: inherit;
     content: "";
@@ -45,7 +45,7 @@ export const INDEX_ContactWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 26px;
-
+    
     & > h1 {
       position: relative;
       width: fit-content;
@@ -69,22 +69,38 @@ export const INDEX_ContactWrapper = styled.div`
       & > span {
         display: block;
         word-break: break-all;
-        margin-top: 8px;
+        margin-top: 16px;
         position: relative;
         width: fit-content;
+        
+        margin-left:16px;
 
         z-index: 1;
 
         cursor: pointer;
+        
+        text-decoration:underline;
+        color:${COLORS.DEFAULT};
         
         &:focus{
           &::before,
           &::after{
             border-color: ${COLORS.FOCUS};
           }
+        }
+        
+        &:hover{
+          text-decoration-color:${COLORS.HOVER};
+          color:${COLORS.HOVER};
+        }
+        
+        &:focus-visible{
+          text-decoration-color:${COLORS.FOCUS};
+          color:${COLORS.FOCUS};
           
         }
-
+        
+/* 
         &::before {
           content: "";
           z-index: -1;
@@ -121,10 +137,11 @@ export const INDEX_ContactWrapper = styled.div`
           border-radius: 50%;
         }
 
-        &:hover::after,
+        /* &:hover::after,
         &:hover::before {
           border-color: ${COLORS.HOVER};
-        }
+        } */
+        
       }
     }
   }

@@ -1,17 +1,53 @@
 "use client"
 import Nosotros_1 from "@/assets/images/Nosotros/Nosotros_1.png"
-import { useObserver2 } from "@/utils/useObserver2.js"
+import { useObserver } from "@/utils/useObserver.js"
 import Image from "next/image.js"
-import { useRef } from "react"
+import Link from "next/link.js"
+import { useEffect, useRef, useState } from "react"
+import { Copied } from "../contacto/Copied.js"
 import { INDEX_ServiciosWrapper } from "./styles/INDEX_ServiciosWrapper.js"
+
+const timeToShowCopied = 2000
 
 export const INDEX_Servicios = () => {
   const refComponent2 = useRef()
-  const { intersected: intersectedComponent2 } = useObserver2(refComponent2)
+
+  const { intersected: intersectedComponent2 } = useObserver(refComponent2)
+
   const refComponent3 = useRef()
-  const { intersected: intersectedComponent3 } = useObserver2(refComponent3)
-  const refComponent4 = useRef()
-  const { intersected: intersectedComponent4 } = useObserver2(refComponent4)
+  const { intersected: intersectedComponent3 } = useObserver(refComponent3)
+
+  const [isCopiedMail, setIsCopiedMail] = useState(false)
+  const [isCopiedPhone, setIsCopiedPhone] = useState(false)
+
+  const handleCopyText = (e, whichCopied) => {
+    if (e.type === "click" || e.code === "Enter") {
+      navigator.clipboard.writeText(e.target.textContent)
+
+      if (whichCopied === "email") {
+        setIsCopiedMail(true)
+      }
+      if (whichCopied === "phone") {
+        setIsCopiedPhone(true)
+      }
+    }
+  }
+
+  useEffect(() => {
+    if (isCopiedMail) {
+      setTimeout(() => {
+        setIsCopiedMail(false)
+      }, timeToShowCopied)
+    }
+  }, [isCopiedMail])
+
+  useEffect(() => {
+    if (isCopiedPhone) {
+      setTimeout(() => {
+        setIsCopiedPhone(false)
+      }, timeToShowCopied)
+    }
+  }, [isCopiedPhone])
 
   return (
     <INDEX_ServiciosWrapper>
@@ -27,17 +63,24 @@ export const INDEX_Servicios = () => {
             <li>Cargas Sueltas</li>
             <li>Estructuras Metálicas</li>
             <li>Paneles Fotovoltáicos</li>
+            <li>
+              Y para otros servicios a tu medida{" "}
+              <span>
+                <Link href="/contacto">contáctanos</Link>
+              </span>
+            </li>
           </ol>
 
           <h2>Alcance de entrega:</h2>
-          <ol>
+          <ul>
             <li>
-              <span>Ciudad y comuna de: </span>Calama y Mejillones
+              <span>Todo</span> el territorio nacional
             </li>
+          </ul>
 
-            <li>Generadores de Carga <span>en la Región</span></li>
-            <li>Faenas <span>en varias regiones del Norte</span></li>
-          </ol>
+          {/* 
+        PARALLAX HERE
+        */}
 
           <div>
             <Image
@@ -54,7 +97,9 @@ export const INDEX_Servicios = () => {
         <div
           ref={refComponent2}
           className={intersectedComponent2 && `refComponent2Intersected`}>
-          <h2><span>Puedes sentirte seguro</span> con nosotros porque:</h2>
+          <h2>
+            <span>Puedes sentirte seguro</span> con nosotros porque:
+          </h2>
 
           <ul>
             <li>
@@ -64,28 +109,38 @@ export const INDEX_Servicios = () => {
               Todas las cargas tienen seguros de <span>2500 UF</span>
             </li>
             <li>
-              El <span>80%</span> de los chóferes son <span>dueños</span> de sus camiones
+              Cumplimos nuestros servicios <span>a tiempo</span> y en <span>condiciones</span>
             </li>
           </ul>
         </div>
 
         <div
           ref={refComponent3}
-          className={intersectedComponent3 && `refComponent3Intersected`}>
-          <h2>Componente 3</h2>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque enim illo cum vitae dolor, reiciendis dicta
-            officiis aliquam beatae, veritatis sint animi!
-          </p>
-        </div>
-        <div
-          className={intersectedComponent4 && "refComponent4Intersected"}
-          ref={refComponent4}>
-          <h2>Ccomponente 4</h2>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque enim illo cum vitae dolor, reiciendis dicta
-            officiis aliquam beatae, veritatis sint animi!
-          </p>
+          className={intersectedComponent3 && "refComponent3Intersected"}>
+          <h2>Contáctanos</h2>
+          <h3>
+            Email:{" "}
+            <span
+              onClick={(e) => handleCopyText(e, "email")}
+              onKeyDown={(e) => handleCopyText(e, "email")}
+              tabIndex={0}
+            >
+              contacto@Agreducam.com
+            </span>
+            <Copied isCopied={isCopiedMail} textToShow="Correo copiado" />
+          </h3>
+          <h3>
+            Teléfono:{" "}
+            <span
+              onClick={(e) => handleCopyText(e, "phone")}
+              onKeyDown={(e) => handleCopyText(e, "phone")}
+              tabIndex={0}
+            >
+              +569 5555 5555
+            </span>
+            <Copied isCopied={isCopiedPhone} textToShow="Número copiado" />
+          </h3>
+
         </div>
       </div>
     </INDEX_ServiciosWrapper>
