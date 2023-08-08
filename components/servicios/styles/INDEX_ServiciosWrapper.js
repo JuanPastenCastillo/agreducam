@@ -33,7 +33,7 @@ export const INDEX_ServiciosWrapper = styled.div`
     .refComponent3Intersected {
       opacity: 1;
       transform: translateX(0%);
-      transition: all 1s ease-out;
+      transition: transform 700ms ease-out,opacity 900ms ease-out ;
     }
 
     & > :nth-child(1) {
