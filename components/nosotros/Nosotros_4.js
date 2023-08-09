@@ -1,16 +1,14 @@
 import { Nosotros_4Wrapper } from "./styles/Nosotros_4Wrapper.js"
 
 export const Nosotros_4 = ({ shouldShow = false }) => {
-  // console.log('🟩shouldShow:', shouldShow)
   return (
-    <Nosotros_4Wrapper
-      shouldShow={shouldShow}
-    >
-      <h1>Nosotros_4</h1>
+    <Nosotros_4Wrapper shouldShow={shouldShow}>
       <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, iure labore dolorum, facere eos dicta enim vitae voluptas voluptatem id itaque est soluta veniam asperiores debitis voluptatibus! Nobis beatae ut optio dicta, ipsa, nam laboriosam facilis a sit quisquam quasi labore, quia deleniti?
+        <span>
+          <span>Agreducam</span> <span>La Portada</span>
+        </span>{" "}
+        se caracteriza por <span>dar soluciones a sus clientes</span> en <span>tiempo y forma</span> con todo tipo de cargas
       </p>
-
     </Nosotros_4Wrapper>
   )
 }

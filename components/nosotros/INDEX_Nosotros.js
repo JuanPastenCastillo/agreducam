@@ -5,13 +5,12 @@ import { Nosotros_1 } from "./Nosotros_1.js"
 import { Nosotros_2 } from "./Nosotros_2.js"
 import { Nosotros_3 } from "./Nosotros_3.js"
 import { Nosotros_4 } from "./Nosotros_4.js"
-import { Nosotros_5 } from "./Nosotros_5.js"
 import { Nosotros_Final } from "./Nosotros_Final.js"
 import { Nosotros_Inicio } from "./Nosotros_Inicio.js"
 import { INDEX_NosotrosWrapper } from "./styles/INDEX_NosotrosWrapper.js"
 
 export const INDEX_Nosotros = () => {
-  const [maxComponents, setMaxComponents] = useState(5)
+  const [maxComponents, setMaxComponents] = useState(4)
   const [showIndex, setShowIndex] = useState(-1)
   const [pause, setPause] = useState(true)
   const [milliseconds, setMilliseconds] = useState(0)
@@ -153,7 +152,7 @@ export const INDEX_Nosotros = () => {
       const scrollPosition = position
       window.scroll({
         top: scrollPosition,
-        behavior: "smooth"
+        behavior: "smooth",
       })
     }
   }, [])
@@ -163,7 +162,7 @@ export const INDEX_Nosotros = () => {
     const scrollPosition = position
     window.scroll({
       top: scrollPosition,
-      behavior: "smooth"
+      behavior: "smooth",
     })
   }, [seeAgain])
 
@@ -181,10 +180,7 @@ export const INDEX_Nosotros = () => {
       ref={myComponentRef}>
       <div
         style={{
-          width: `${showIndex >= 0 && showIndex <= maxComponents - 1
-              ? (milliseconds * 100) / ANIMATION_DURATION.timeToNextComponent
-              : 100
-            }% `
+          width: `${showIndex >= 0 && showIndex <= maxComponents - 1 ? (milliseconds * 100) / ANIMATION_DURATION.timeToNextComponent : 100}% `,
         }}
       />
 
@@ -197,13 +193,11 @@ export const INDEX_Nosotros = () => {
       <Nosotros_2 shouldShow={showIndex === 1} />
       <Nosotros_3 shouldShow={showIndex === 2} />
       <Nosotros_4 shouldShow={showIndex === 3} />
-      <Nosotros_5 shouldShow={showIndex === 4} />
 
       <Nosotros_Final
         shouldShow={showIndex === "final"}
         setShowIndex={setShowIndex}
         setSeeAgain={setSeeAgain}
-
       />
     </INDEX_NosotrosWrapper>
   )

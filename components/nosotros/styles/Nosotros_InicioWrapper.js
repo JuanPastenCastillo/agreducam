@@ -5,38 +5,30 @@ export const Nosotros_InicioWrapper = styled.div`
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  padding: 24px;
-  transition: opacity 3500ms;
-  
+
   opacity: ${({ shouldShow }) => (shouldShow ? `1` : `0`)};
 
-  position: absolute;
-  inset: 0;
   z-index: 2;
-  
-  & > :nth-child(1){
+
+  & > :nth-child(1) {
     font-size: clamp(100%, 10vw, 4rem);
-    text-align:center;
-    
-    color:crimson;
-    filter:sepia(20%);
-    
-    & > span{
-      display:block;
-      color:white;
+    text-align: center;
+
+    color: crimson;
+    filter: sepia(20%);
+
+    text-transform: uppercase;
+
+    & > span {
+      display: block;
+      color: white;
     }
   }
-  
-  
+
   & > :nth-child(2) {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* flex-wrap: wrap; */
-
-    /* margin: auto; */
-    
-    
 
     & > :nth-child(1) {
       -webkit-mask-image: url(${(variableHere) => variableHere.image});
@@ -54,7 +46,6 @@ export const Nosotros_InicioWrapper = styled.div`
       width: 100%;
     }
   }
-  
 
   & > .tutorial {
     opacity: ${({ showTutorial }) => (showTutorial ? "1" : "0")};
@@ -67,7 +58,7 @@ export const Nosotros_InicioWrapper = styled.div`
       width: 25%;
       background-color: hsl(0, 100%, 100%, 0.7);
       /* border: 2px solid white; */
-      
+
       /* height: 100%; */
       height: calc(100% - 11%);
 
@@ -80,7 +71,7 @@ export const Nosotros_InicioWrapper = styled.div`
       transition: all 1s linear;
 
       & > p {
-        color:black;
+        color: black;
         & > span {
           font-weight: 800;
           display: block;
@@ -111,8 +102,8 @@ export const Nosotros_InicioWrapper = styled.div`
       transition: all 1s linear;
 
       & > p {
-        text-align:center;
-        color:black;
+        text-align: center;
+        color: black;
         & > span {
           font-weight: 800;
         }
