@@ -104,27 +104,11 @@ export const INDEX_ServiciosWrapper = styled.div`
         position: relative;
         background-image: url("Servicios.jpg");
         background-attachment: fixed;
-        background-position: 26% 0px;
+        background-position: 26% -150px;
         background-repeat: no-repeat;
         background-size: cover;
+        
         margin-inline:-24px ;
-
-        .parallax::after {
-          content: "";
-          position: absolute;
-          inset: 0;
-          transform: translateZ(-1px) scale(1.5);
-          background-size: 100%;
-          z-index: -1;
-        }
-
-        .bg::after {
-          /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("Servicios.jpg"); */
-          background-image: url("Servicios.jpg");
-          background-size: cover;
-
-          border: 2px solid green;
-        }
       }
     }
 

@@ -76,19 +76,7 @@ export const INDEX_Servicios = () => {
             </li>
           </ul>
 
-          {/* 
-        PARALLAX HERE
-        */}
-
           <div className="parallax bg">
-            {/* <Image
-              src={Nosotros_1}
-              alt="Flota de camiones"
-              style={{
-                width: "100%",
-                height: "auto"
-              }}
-            /> */}
           </div>
         </div>
 
