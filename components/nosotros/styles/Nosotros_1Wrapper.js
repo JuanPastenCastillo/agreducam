@@ -41,6 +41,7 @@ export const Nosotros_1Wrapper = styled.div`
       cursor: pointer;
       position: relative;
       z-index: 2;
+      
 
       & > :hover {
         text-decoration: underline;

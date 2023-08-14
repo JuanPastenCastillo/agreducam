@@ -9,9 +9,10 @@ export const CopiedWrapper = styled.div`
   background-color: black;
 
   border-radius: 16px;
-  /* border: 2px solid hsl(120, 100%, 40.1%); */
   border: 2px solid hsl(180, 100%, 44.3%);
-  /* color: hsl(120, 100%, 40.1%); */
   color: hsl(180, 100%, 44.3%);
   padding: 16px;
+  
+  text-align:center;
+  
 `

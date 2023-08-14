@@ -9,7 +9,6 @@ const timeToShowCopied = 2000
 
 export const INDEX_Servicios = () => {
   const refComponent2 = useRef()
-
   const { intersected: intersectedComponent2 } = useObserver(refComponent2)
 
   const refComponent3 = useRef()
