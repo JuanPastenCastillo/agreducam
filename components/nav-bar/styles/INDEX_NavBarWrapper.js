@@ -4,7 +4,6 @@ export const INDEX_NavBarWrapper = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  /* flex-direction: column; */
   flex-wrap: wrap;
   gap: 20px;
   padding: 16px;
@@ -31,8 +30,10 @@ export const INDEX_NavBarWrapper = styled.header`
     position: relative;
     z-index: 99;
 
-    min-width: 15%;
-    max-width: 115px;
+    min-width: 25%;
+    
+    border: 2px solid crimson;
+    
     box-shadow: none;
 
     cursor: pointer;
@@ -65,22 +66,6 @@ export const INDEX_NavBarWrapper = styled.header`
     & > :nth-child(1) {
       border-radius: 8px;
     }
-
-    /* &::before {
-      content: "";
-      z-index: -1;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background: linear-gradient(-45deg, white 0%, yellow 100%);
-      transform: translate3d(25px, 20px, 0) scale(0.95);
-      filter: blur(20px);
-      opacity: var(0.7);
-      transition: opacity 0.3s;
-      border-radius: inherit;
-    } */
   }
 
   @media (max-width: 739px) {

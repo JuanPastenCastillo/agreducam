@@ -9,16 +9,16 @@ import { INDEX_NavBarWrapper } from "./styles/INDEX_NavBarWrapper.js"
 const LINKS = [
   {
     label: "Nosotros",
-    route: "/nosotros"
+    route: "/nosotros",
   },
   {
     label: "Servicios",
-    route: "/servicios"
+    route: "/servicios",
   },
   {
     label: "Contacto",
-    route: "/contacto"
-  }
+    route: "/contacto",
+  },
 ]
 
 export const INDEX_NavBar = () => {
@@ -34,9 +34,9 @@ export const INDEX_NavBar = () => {
   const { windowSize } = useCheckUserWidth()
 
   return (
-    <INDEX_NavBarWrapper className={thePathname === "/nosotros" ? "" : "isNotHome"}
-      $isServices={thePathname === "/servicios"}
-    >
+    <INDEX_NavBarWrapper
+      className={thePathname === "/nosotros" ? "" : "isNotHome"}
+      $isServices={thePathname === "/servicios"}>
       <nav>
         <ul>
           {LINKS.map(({ label, route }, i) => {
@@ -59,8 +59,7 @@ export const INDEX_NavBar = () => {
         onClick={handleMoveToServices}
         onKeyDown={handleMoveToServices}
         tabIndex={1}
-        className={thePathname === "/servicios" && "isActiveLink"}
-      >
+        className={thePathname === "/servicios" && "isActiveLink"}>
         <Image
           src={AGREDUCAM_Logo}
           alt="Logo de Agreducam"
