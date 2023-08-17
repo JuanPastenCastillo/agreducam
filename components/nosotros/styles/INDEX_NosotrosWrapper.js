@@ -12,6 +12,22 @@ export const INDEX_NosotrosWrapper = styled.div`
   flex-direction: column;
   gap: 16px;
 
+  & > :nth-child(1),
+  & > :nth-child(3),
+  & > :nth-child(4),
+  & > :nth-child(5),
+  & > :nth-child(6)
+   {
+    opacity: 0.3;
+    transform: translateX(10%);
+  }
+
+  .intersectedComponent0 {
+    opacity: 1;
+    transform: translateX(0%);
+    transition: all 700ms ease-out;
+  }
+
   & > :nth-child(1) {
     filter: sepia(20%);
     font-weight: 800;
@@ -20,7 +36,6 @@ export const INDEX_NosotrosWrapper = styled.div`
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-
     & > :nth-child(1) {
       color: ${COLORS.ACTIVE};
       filter: sepia(20%);
@@ -35,20 +50,31 @@ export const INDEX_NosotrosWrapper = styled.div`
   }
 
   & > :nth-child(2) {
+    margin-top: 64px;
+    height: 60vh;
+    width: 100%;
+    background-image: url("Nosotros.webp");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    @media (max-width: 550px) {
+      /* border: 2px solid crimson; */
+      background-position-x: 26%;
+      
+    }
   }
+
   & > :nth-child(3) {
   }
   & > :nth-child(4) {
+  }
+  & > :nth-child(5) {
     list-style: inside;
     list-style-type: decimal;
 
     & > li {
-      /* border-bottom: 2px solid red; */
-      /* border-bottom: 2px solid red; */
-
       & > span {
-        /* color: ${COLORS.ACTIVE}; */
-        /* color: white; */
         filter: sepia(20%);
         text-decoration: underline;
         text-decoration-color: ${COLORS.ACTIVE};

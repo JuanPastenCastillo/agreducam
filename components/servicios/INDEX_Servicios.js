@@ -8,10 +8,10 @@ import { INDEX_ServiciosWrapper } from "./styles/INDEX_ServiciosWrapper.js"
 const timeToShowCopied = 2000
 
 export const INDEX_Servicios = () => {
-  const refComponent2 = useRef()
+  const refComponent2 = useRef(null)
   const { intersected: intersectedComponent2 } = useObserver(refComponent2)
 
-  const refComponent3 = useRef()
+  const refComponent3 = useRef(null)
   const { intersected: intersectedComponent3 } = useObserver(refComponent3)
 
   const [isCopiedMail, setIsCopiedMail] = useState(false)
@@ -75,13 +75,14 @@ export const INDEX_Servicios = () => {
             </li>
           </ul>
 
-          <div className="parallax bg">
-          </div>
+          <div className="parallax bg" />
+
         </div>
 
         <div
           ref={refComponent2}
-          className={intersectedComponent2 && `refComponent2Intersected`}>
+          className={intersectedComponent2 && `refComponent2Intersected`}
+        >
           <h2>
             <span>Puedes sentirte seguro</span> con nosotros porque:
           </h2>

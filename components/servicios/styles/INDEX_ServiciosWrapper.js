@@ -33,10 +33,11 @@ export const INDEX_ServiciosWrapper = styled.div`
     .refComponent3Intersected {
       opacity: 1;
       transform: translateX(0%);
-      transition: transform 700ms ease-out,opacity 900ms ease-out ;
+      transition: transform 700ms ease-out, opacity 900ms ease-out;
     }
 
     & > :nth-child(1) {
+
       & > :nth-child(1) {
         text-decoration: underline;
         text-decoration-color: hsl(348, 83.3%, 57.1%);
@@ -66,6 +67,8 @@ export const INDEX_ServiciosWrapper = styled.div`
             color: hsl(348, 83.3%, 53.1%);
             filter: sepia(20%);
             cursor: pointer;
+            text-decoration: underline;
+            
 
             &:hover {
               color: hsl(195.1, 100%, 50%);
@@ -101,14 +104,12 @@ export const INDEX_ServiciosWrapper = styled.div`
       & > :last-child {
         margin-top: 64px;
         height: 60vh;
-        position: relative;
         background-image: url("Servicios.jpg");
         background-attachment: fixed;
-        background-position: 26% -150px;
+        background-position: 26% -18vw;
         background-repeat: no-repeat;
         background-size: cover;
-        
-        margin-inline:-24px ;
+        margin-inline: -24px;
       }
     }
 

@@ -1,5 +1,6 @@
 "use client"
 import { DATA_COMPANY } from "@/utils/DATA_COMPANY.js"
+import { useObserver } from "@/utils/useObserver.js"
 import { useEffect, useRef, useState } from "react"
 import { Copied } from "../contacto/Copied.js"
 import { INDEX_NosotrosWrapper } from "./styles/INDEX_NosotrosWrapper.js"
@@ -7,140 +8,6 @@ import { INDEX_NosotrosWrapper } from "./styles/INDEX_NosotrosWrapper.js"
 const timeToShowCopied = 2500
 
 export const INDEX_Nosotros = () => {
-  // const [maxComponents, setMaxComponents] = useState(4)
-  // const [showIndex, setShowIndex] = useState(-1)
-  // const [pause, setPause] = useState(true)
-  // const [milliseconds, setMilliseconds] = useState(0)
-  // const [seeAgain, setSeeAgain] = useState(false)
-
-  // // Create a function that updates the showIndex state variable by incrementing it by one and wrapping it around the number of components
-  // const handleUpdateShowIndex = (toLeft = false) => {
-  //   if (showIndex > 0 && showIndex <= maxComponents - 1 && toLeft) {
-  //     setShowIndex((prevState) => (prevState - 1) % maxComponents)
-  //   }
-
-  //   if (showIndex === 0 && toLeft) {
-  //     setShowIndex((prevState) => prevState - 1)
-  //   }
-
-  //   if (showIndex === -1 && !toLeft) {
-  //     setShowIndex((prevState) => prevState + 1)
-  //   }
-
-  //   if (showIndex >= 0 && showIndex < maxComponents - 1 && !toLeft) {
-  //     setShowIndex((prevState) => (prevState + 1) % maxComponents)
-  //   }
-
-  //   if (showIndex === maxComponents - 1 && !toLeft) {
-  //     setShowIndex("final")
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   if (showIndex === -1 || showIndex === "final") {
-  //     setPause(true)
-  //   }
-  // }, [showIndex])
-
-  // useEffect(() => {
-  //   if (pause === false && showIndex >= 0 && showIndex <= maxComponents - 1) {
-  //     function updateMilliseconds() {
-  //       setMilliseconds((prevMilliseconds) => prevMilliseconds + 1)
-  //     }
-
-  //     const interval = setInterval(updateMilliseconds, 1)
-  //     return () => clearInterval(interval)
-  //   }
-  // }, [pause, showIndex])
-
-  // useEffect(() => {
-  //   if (milliseconds === ANIMATION_DURATION.timeToNextComponent && showIndex >= 0 && showIndex <= maxComponents - 1) {
-  //     handleUpdateShowIndex()
-  //     setMilliseconds(0)
-  //   }
-  // }, [milliseconds, showIndex])
-
-  // const handlePauseWithClick = (e) => {
-  //   if (e.detail === 1 && showIndex >= 0 && showIndex <= maxComponents - 1) {
-  //     setPause((prevState) => !prevState)
-  //   }
-  // }
-
-  // const handleClickRightOrLeft = (event) => {
-  //   const leftPart = (25 * window.innerWidth) / 100
-  //   if (event.clientX <= leftPart) {
-  //     handleUpdateShowIndex(true)
-  //     setMilliseconds(0)
-  //     setPause(false)
-  //   }
-
-  //   const rightPart = (75 * window.innerWidth) / 100
-  //   if (event.clientX >= rightPart) {
-  //     handleUpdateShowIndex()
-  //     setMilliseconds(0)
-  //     setPause(false)
-  //   }
-  // }
-
-  // const [changeTypeOfCursor, setChangeTypeOfCursor] = useState("default")
-
-  // const handleChangeCursor = (event) => {
-  //   const leftPart = (25 * window.innerWidth) / 100
-  //   if (event.clientX <= leftPart && showIndex >= 0 && typeof showIndex === "number") {
-  //     setChangeTypeOfCursor("left")
-  //   }
-
-  //   const rightPart = (75 * window.innerWidth) / 100
-  //   if (event.clientX >= rightPart && showIndex !== "final") {
-  //     setChangeTypeOfCursor("right")
-  //   }
-  // }
-
-  // const handleMoveCursor = (event) => {
-  //   const leftPart = (25 * window.innerWidth) / 100
-  //   if (showIndex >= 0 && typeof showIndex === "number" && event.clientX <= leftPart) {
-  //     setChangeTypeOfCursor("left")
-  //   }
-
-  //   const rightPart = (75 * window.innerWidth) / 100
-  //   if (event.clientX >= rightPart && showIndex !== "final") {
-  //     setChangeTypeOfCursor("right")
-  //   }
-
-  //   if (event.clientX <= leftPart === false && event.clientX >= rightPart === false) {
-  //     setChangeTypeOfCursor("default")
-  //   }
-  // }
-
-  // const handleDefaultCursor = () => {
-  //   setChangeTypeOfCursor("default")
-  // }
-
-  // useEffect(() => {
-  //   function handleKeyPress(event) {
-  //     if (event.code === "KeyK" || event.code === "KeyP") {
-  //       setPause((prevState) => !prevState)
-  //     }
-
-  //     if (event.code === "ArrowLeft") {
-  //       handleUpdateShowIndex(true)
-  //       setMilliseconds(0)
-  //       setPause(false)
-  //     }
-
-  //     if (event.code === "ArrowRight") {
-  //       handleUpdateShowIndex()
-  //       setMilliseconds(0)
-  //       setPause(false)
-  //     }
-  //   }
-
-  //   document.addEventListener("keydown", handleKeyPress)
-  //   return () => {
-  //     document.removeEventListener("keydown", handleKeyPress)
-  //   }
-  // }, [showIndex])
-
   const myComponentRef = useRef(null)
   useEffect(() => {
     if (myComponentRef.current) {
@@ -172,58 +39,46 @@ export const INDEX_Nosotros = () => {
     }
   }, [isCopiedPhone])
 
-  useEffect(() => {
-    /*_codeHere_*/
-    console.log("whoCopiedState:", whoCopiedState)
-  }, [whoCopiedState])
+  const refComponent0 = useRef(null)
+  const { intersected: intersectedComponent0 } = useObserver(refComponent0)
+
+  const refComponent1 = useRef(null)
+  const { intersected: intersectedComponent1 } = useObserver(refComponent1)
+
+  const refComponent2 = useRef(null)
+  const { intersected: intersectedComponent2 } = useObserver(refComponent2)
+
+  const refComponent3 = useRef(null)
+  const { intersected: intersectedComponent3 } = useObserver(refComponent3)
+
+  const refComponent4 = useRef(null)
+  const { intersected: intersectedComponent4 } = useObserver(refComponent4)
 
   return (
-    <INDEX_NosotrosWrapper
-      ref={myComponentRef}
-    // $shouldShow={showIndex}
-    // $changeTypeOfCursor={changeTypeOfCursor}
-    // onClick={(e) => {
-    //   handlePauseWithClick(e)
-    //   handleClickRightOrLeft(e)
-    // }}
-    // onMouseEnter={handleChangeCursor}
-    // onMouseLeave={handleDefaultCursor}
-    // onMouseMove={handleMoveCursor}
-    // ref={myComponentRef}
-    >
-      {/* <div
-        style={{
-          width: `${showIndex >= 0 && showIndex <= maxComponents - 1 ? (milliseconds * 100) / ANIMATION_DURATION.timeToNextComponent : 100}% `,
-        }}
-      /> */}
-
-      {/* <Nosotros_Inicio
-        shouldShow={showIndex === -1}
-        showIndex={showIndex}
-      /> */}
-
-      {/* <Nosotros_1 shouldShow={showIndex === 0} />
-      <Nosotros_2 shouldShow={showIndex === 1} />
-      <Nosotros_3 shouldShow={showIndex === 2} />
-      <Nosotros_4 shouldShow={showIndex === 3} />
-
-      <Nosotros_Final
-        shouldShow={showIndex === "final"}
-        setShowIndex={setShowIndex}
-        setSeeAgain={setSeeAgain}
-      /> */}
-
-      <h2>
+    <INDEX_NosotrosWrapper ref={myComponentRef}>
+      <h2
+        ref={refComponent0}
+        className={intersectedComponent0 && `intersectedComponent0`}>
         <span>Agreducam</span> <span>La Portada</span>
       </h2>
 
-      <p>
-        Es una asociación gremial de dueños de camiones, fundada el año 2000. Cuenta con una importante flota de camiones disponibles las 24 horas del día y los 365 días del año.
+      <div />
+
+      <p
+        ref={refComponent1}
+        className={intersectedComponent1 && `intersectedComponent0`}>
+        Es una asociación gremial de dueños de camiones, fundada el saño 2000. Cuenta con una importante flota de camiones disponibles las 24 horas del día y los 365 días del año.
       </p>
 
-      <p>Nuestra organización está precedida por un directorio conformado por: </p>
+      <p
+        ref={refComponent2}
+        className={intersectedComponent2 && `intersectedComponent0`}>
+        Nuestra organización está precedida por un directorio conformado por:{" "}
+      </p>
 
-      <ol>
+      <ol
+        ref={refComponent3}
+        className={intersectedComponent3 && `intersectedComponent0`}>
         <li>
           <span
             onClick={(e) => handleCopyText(e, DATA_COMPANY.presidente.phone, DATA_COMPANY.presidente.name)}
@@ -279,14 +134,21 @@ export const INDEX_Nosotros = () => {
         />
       </ol>
 
-      <p>
-        Gracias a nuestra experiencia, nos permite estar a la altura en el cumplimiento de tiempos y certezas en entrega, así como también la aplicación destrictas normas den el manejo de sustancias peligrosas y explosivos.
+      <p
+        ref={refComponent4}
+        className={intersectedComponent4 && `intersectedComponent0`}
+      >
+        Gracias a nuestra experiencia, nos permite estar a la altura en el cumplimiento de tiempos y certezas en entrega, así como también la aplicación destrictas normas den el
+        manejo de sustancias peligrosas y explosivos.
       </p>
 
-      <p>
-        Estamos comprometidos con nuestros clientes de la II Region y preocupados de prestar un servicio de excelencia y calidad. Apoyamos la gesti´pon emprresarial, de servicio de transporte, dando soluciones a nuestros clientes en el proceso de cconsolidación, transporte y disposición final de cargas.
-      </p>
+      <p
 
+
+      >
+        Estamos comprometidos con nuestros clientes de la II Region y preocupados de prestar un servicio de excelencia y calidad. Apoyamos la gestión emprresarial, de servicio de
+        transporte, dando soluciones a nuestros clientes en el proceso de consolidación, transporte y disposición final de cargas.
+      </p>
     </INDEX_NosotrosWrapper>
   )
 }
