@@ -1,8 +1,8 @@
 "use client"
 import { useObserver } from "@/utils/useObserver.js"
 import Link from "next/link.js"
-import { useEffect, useRef, useState } from "react"
-import { Copied } from "../contacto/Copied.js"
+import { useRouter } from "next/navigation.js"
+import { useRef } from "react"
 import { INDEX_ServiciosWrapper } from "./styles/INDEX_ServiciosWrapper.js"
 
 const timeToShowCopied = 2000
@@ -14,37 +14,12 @@ export const INDEX_Servicios = () => {
   const refComponent3 = useRef(null)
   const { intersected: intersectedComponent3 } = useObserver(refComponent3)
 
-  const [isCopiedMail, setIsCopiedMail] = useState(false)
-  const [isCopiedPhone, setIsCopiedPhone] = useState(false)
-
-  const handleCopyText = (e, whichCopied) => {
+  const { push } = useRouter()
+  const handlePushToContact = (e) => {
     if (e.type === "click" || e.code === "Enter") {
-      navigator.clipboard.writeText(e.target.textContent)
-
-      if (whichCopied === "email") {
-        setIsCopiedMail(true)
-      }
-      if (whichCopied === "phone") {
-        setIsCopiedPhone(true)
-      }
+      push("contacto")
     }
   }
-
-  useEffect(() => {
-    if (isCopiedMail) {
-      setTimeout(() => {
-        setIsCopiedMail(false)
-      }, timeToShowCopied)
-    }
-  }, [isCopiedMail])
-
-  useEffect(() => {
-    if (isCopiedPhone) {
-      setTimeout(() => {
-        setIsCopiedPhone(false)
-      }, timeToShowCopied)
-    }
-  }, [isCopiedPhone])
 
   return (
     <INDEX_ServiciosWrapper>
@@ -76,13 +51,11 @@ export const INDEX_Servicios = () => {
           </ul>
 
           <div className="parallax bg" />
-
         </div>
 
         <div
           ref={refComponent2}
-          className={intersectedComponent2 && `refComponent2Intersected`}
-        >
+          className={intersectedComponent2 && `refComponent2Intersected`}>
           <h2>
             <span>Puedes sentirte seguro</span> con nosotros porque:
           </h2>
@@ -103,30 +76,12 @@ export const INDEX_Servicios = () => {
         <div
           ref={refComponent3}
           className={intersectedComponent3 && "refComponent3Intersected"}>
-          <h2>Contáctanos</h2>
-          <h3>
-            Email:{" "}
-            <span
-              onClick={(e) => handleCopyText(e, "email")}
-              onKeyDown={(e) => handleCopyText(e, "email")}
-              tabIndex={0}
-            >
-              contacto@Agreducam.com
-            </span>
-            <Copied isCopied={isCopiedMail} textToShow="Correo copiado" />
-          </h3>
-          <h3>
-            Teléfono:{" "}
-            <span
-              onClick={(e) => handleCopyText(e, "phone")}
-              onKeyDown={(e) => handleCopyText(e, "phone")}
-              tabIndex={0}
-            >
-              +569 5555 5555
-            </span>
-            <Copied isCopied={isCopiedPhone} textToShow="Número copiado" />
-          </h3>
-
+          <h2
+            onClick={handlePushToContact}
+            onKeyDown={handlePushToContact}
+            tabIndex={0}>
+            Obten una solución <span>a tu medida:</span> <span>Contáctanos</span>
+          </h2>
         </div>
       </div>
     </INDEX_ServiciosWrapper>

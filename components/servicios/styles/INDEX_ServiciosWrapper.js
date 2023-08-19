@@ -37,7 +37,6 @@ export const INDEX_ServiciosWrapper = styled.div`
     }
 
     & > :nth-child(1) {
-
       & > :nth-child(1) {
         text-decoration: underline;
         text-decoration-color: hsl(348, 83.3%, 57.1%);
@@ -68,7 +67,6 @@ export const INDEX_ServiciosWrapper = styled.div`
             filter: sepia(20%);
             cursor: pointer;
             text-decoration: underline;
-            
 
             &:hover {
               color: hsl(195.1, 100%, 50%);
@@ -147,28 +145,26 @@ export const INDEX_ServiciosWrapper = styled.div`
 
     & > :nth-child(3) {
       & > h2 {
-        color: hsl(348, 83.3%, 57.1%);
-        filter: sepia(20%);
+        text-align: center;
         text-decoration: underline;
-      }
+        cursor: pointer;
 
-      & > h3 {
         & > span {
-          word-break: break-all;
-          text-decoration: underline;
-          cursor: pointer;
           display: block;
-
-          width: fit-content;
-
-          &:hover {
-            color: ${COLORS.ACTIVE};
-          }
         }
-      }
+        
+        & > :last-child{
+          color: ${COLORS.ACTIVE};
+        }
 
-      & > *:not(:last-child) {
-        margin-bottom: 16px;
+        &:hover,
+        &:focus {
+          color: ${COLORS.FOCUS};
+          
+          & > :last-child{
+            color: ${COLORS.FOCUS};
+        }
+        }
       }
     }
   }
