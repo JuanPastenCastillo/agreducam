@@ -88,5 +88,11 @@ export const INDEX_NavBarWrapper = styled.header`
 
     background-color: ${COLORS.ACTIVE};
     filter: blur(2px) sepia(50%);
+
+    box-shadow: ${({ $isServices }) =>
+    $isServices
+      ? `hsl(348, 83.3%, 41.1%, 0.25) 0px 54px 55px, hsl(348, 83.3%, 41.1%, 0.12) 0px -12px 30px, hsl(348, 83.3%, 41.1%, 0.12) 0px 4px 6px,
+      hsl(348, 83.3%, 41.1%, 0.17) 0px 12px 13px, hsl(348, 83.3%, 41.1%, 0.09) 0px -3px 5px;`
+      : ``};
   }
 `
