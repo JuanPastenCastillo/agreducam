@@ -115,6 +115,8 @@ export const INDEX_Nosotros = () => {
         Estamos comprometidos con nuestros clientes de la II Region y preocupados de prestar un servicio de excelencia y calidad. Apoyamos la gestión empresarial, de servicio de
         transporte, dando soluciones a nuestros clientes en el proceso de consolidación, transporte y disposición final de cargas.
       </p>
+
+      <div />
     </INDEX_NosotrosWrapper>
   )
 }

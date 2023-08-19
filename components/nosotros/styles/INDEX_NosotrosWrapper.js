@@ -51,17 +51,19 @@ export const INDEX_NosotrosWrapper = styled.div`
 
   & > :nth-child(2) {
     margin-top: 64px;
+    
     height: 60vh;
-    width: 100%;
-    background-image: url("Nosotros.webp");
+    width: calc(100% + calc(24px * 2));
+    
+    overflow: hidden;
+    
+    background-image: url("Nosotros.jpg");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     
     @media (max-width: 550px) {
-      /* border: 2px solid crimson; */
       background-position-x: 26%;
-      
     }
   }
 
@@ -90,4 +92,22 @@ export const INDEX_NosotrosWrapper = styled.div`
       }
     }
   }
+  
+  & > :last-child{
+    margin-top: 64px;
+    height: 60vh;
+    width: calc(100% + calc(24px * 2));
+    overflow: hidden;
+    
+    background-image: url("Nosotros_2.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    @media (max-width: 1110px) {
+      background-position-x: 40%;
+    }
+    
+  }
+  
 `
