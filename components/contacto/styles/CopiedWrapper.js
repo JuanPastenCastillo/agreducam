@@ -1,3 +1,4 @@
+import { COLORS } from "@/assets/colors"
 import styled from "styled-components"
 
 export const CopiedWrapper = styled.div`
@@ -14,5 +15,11 @@ export const CopiedWrapper = styled.div`
   padding: 16px;
   
   text-align:center;
+  
+  & > span{
+    text-decoration:underline;
+    color:${COLORS.ACTIVE};
+  }
+  
   
 `

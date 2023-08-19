@@ -67,8 +67,10 @@ export const INDEX_NosotrosWrapper = styled.div`
 
   & > :nth-child(3) {
   }
+  
   & > :nth-child(4) {
   }
+  
   & > :nth-child(5) {
     list-style: inside;
     list-style-type: decimal;
@@ -78,7 +80,6 @@ export const INDEX_NosotrosWrapper = styled.div`
         filter: sepia(20%);
         text-decoration: underline;
         text-decoration-color: ${COLORS.ACTIVE};
-        white-space: pre;
 
         cursor: pointer;
 

@@ -79,73 +79,39 @@ export const INDEX_Nosotros = () => {
       <ol
         ref={refComponent3}
         className={intersectedComponent3 && `intersectedComponent0`}>
-        <li>
-          <span
-            onClick={(e) => handleCopyText(e, DATA_COMPANY.presidente.phone, DATA_COMPANY.presidente.name)}
-            onKeyDown={(e) => handleCopyText(e, DATA_COMPANY.presidente.phone, DATA_COMPANY.presidente.name)}
-            tabIndex={0}>
-            Presidente
-          </span>
-          : Juan Pastén (
-          <span
-            onClick={(e) => handleCopyText(e, undefined, DATA_COMPANY.presidente.name)}
-            onKeyDown={(e) => handleCopyText(e, undefined, DATA_COMPANY.presidente.name)}
-            tabIndex={0}>
-            {DATA_COMPANY.presidente.phone}
-          </span>
-          )
+        <li
+          onClick={(e) => handleCopyText(e, undefined, DATA_COMPANY.presidente.name)}
+          onKeyDown={(e) => handleCopyText(e, undefined, DATA_COMPANY.presidente.name)}
+          tabIndex={0}>
+          <span>Presidente: Juan Pastén</span>
         </li>
-        <li>
-          <span
-            onClick={(e) => handleCopyText(e, DATA_COMPANY.tesorero.phone, DATA_COMPANY.tesorero.name)}
-            onKeyDown={(e) => handleCopyText(e, DATA_COMPANY.tesorero.phone, DATA_COMPANY.tesorero.name)}
-            tabIndex={0}>
-            Tesorero
-          </span>
-          : Pablo Soza (
-          <span
-            onClick={(e) => handleCopyText(e, undefined, DATA_COMPANY.tesorero.name)}
-            onKeyDown={(e) => handleCopyText(e, undefined, DATA_COMPANY.tesorero.name)}
-            tabIndex={0}>
-            {DATA_COMPANY.tesorero.phone}
-          </span>
-          )
+        <li
+          onClick={(e) => handleCopyText(e, DATA_COMPANY.tesorero.phone, DATA_COMPANY.tesorero.name)}
+          onKeyDown={(e) => handleCopyText(e, DATA_COMPANY.tesorero.phone, DATA_COMPANY.tesorero.name)}
+          tabIndex={0}>
+          <span>Tesorero: Pablo Soza </span>
         </li>
-        <li>
-          <span
-            onClick={(e) => handleCopyText(e, DATA_COMPANY.jefeDeTransporte.phone, DATA_COMPANY.jefeDeTransporte.name)}
-            onKeyDown={(e) => handleCopyText(e, DATA_COMPANY.jefeDeTransporte.phone, DATA_COMPANY.jefeDeTransporte.name)}
-            tabIndex={0}>
-            Jefe de Transporte
-          </span>
-          : Ricardo Barrientos (
-          <span
-            onClick={(e) => handleCopyText(e, undefined, DATA_COMPANY.jefeDeTransporte.name)}
-            onKeyDown={(e) => handleCopyText(e, undefined, DATA_COMPANY.jefeDeTransporte.name)}
-            tabIndex={0}>
-            {DATA_COMPANY.jefeDeTransporte.phone}
-          </span>
-          )
+        <li
+          onClick={(e) => handleCopyText(e, DATA_COMPANY.jefeDeTransporte.phone, DATA_COMPANY.jefeDeTransporte.name)}
+          onKeyDown={(e) => handleCopyText(e, DATA_COMPANY.jefeDeTransporte.phone, DATA_COMPANY.jefeDeTransporte.name)}
+          tabIndex={0}>
+          <span>Jefe de Transporte: Ricardo Barrientos </span>
         </li>
 
         <Copied
           isCopied={isCopiedPhone}
-          textToShow={`#${whoCopiedState} Copiado`}
+          textToShow={whoCopiedState}
         />
       </ol>
 
       <p
         ref={refComponent4}
-        className={intersectedComponent4 && `intersectedComponent0`}
-      >
+        className={intersectedComponent4 && `intersectedComponent0`}>
         Gracias a nuestra experiencia, nos permite estar a la altura en el cumplimiento de tiempos y certezas en entrega, así como también la aplicación destrictas normas den el
         manejo de sustancias peligrosas y explosivos.
       </p>
 
-      <p
-
-
-      >
+      <p>
         Estamos comprometidos con nuestros clientes de la II Region y preocupados de prestar un servicio de excelencia y calidad. Apoyamos la gestión empresarial, de servicio de
         transporte, dando soluciones a nuestros clientes en el proceso de consolidación, transporte y disposición final de cargas.
       </p>
