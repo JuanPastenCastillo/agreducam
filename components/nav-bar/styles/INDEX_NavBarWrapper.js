@@ -1,3 +1,4 @@
+import { COLORS } from "@/assets/colors"
 import styled from "styled-components"
 
 export const INDEX_NavBarWrapper = styled.header`
@@ -7,6 +8,8 @@ export const INDEX_NavBarWrapper = styled.header`
   flex-wrap: wrap;
   gap: 20px;
   padding: 16px;
+
+  padding-bottom: 32px;
 
   position: relative;
 
@@ -31,9 +34,9 @@ export const INDEX_NavBarWrapper = styled.header`
     z-index: 99;
 
     min-width: 25%;
-    
+
     border: 2px solid crimson;
-    
+
     box-shadow: none;
 
     cursor: pointer;
@@ -44,15 +47,13 @@ export const INDEX_NavBarWrapper = styled.header`
     justify-content: center;
 
     &:focus-within {
-      box-shadow: hsl(180, 100%, 27.3%, 0.25) 0px 54px 55px, hsl(180, 100%, 27.3%, 0.12) 0px -12px 30px,
-        hsl(180, 100%, 27.3%, 0.12) 0px 4px 6px, hsl(180, 100%, 27.3%, 0.17) 0px 12px 13px,
-        hsl(180, 100%, 27.3%, 0.09) 0px -3px 5px;
+      box-shadow: hsl(180, 100%, 27.3%, 0.25) 0px 54px 55px, hsl(180, 100%, 27.3%, 0.12) 0px -12px 30px, hsl(180, 100%, 27.3%, 0.12) 0px 4px 6px,
+        hsl(180, 100%, 27.3%, 0.17) 0px 12px 13px, hsl(180, 100%, 27.3%, 0.09) 0px -3px 5px;
     }
 
     &.isActiveLink {
-      box-shadow: hsl(348, 83.3%, 47.1%, 0.25) 0px 54px 55px, hsl(348, 83.3%, 47.1%, 0.12) 0px -12px 30px,
-        hsl(348, 83.3%, 47.1%, 0.12) 0px 4px 6px, hsl(348, 83.3%, 47.1%, 0.17) 0px 12px 13px,
-        hsl(348, 83.3%, 47.1%, 0.09) 0px -3px 5px;
+      box-shadow: hsl(348, 83.3%, 47.1%, 0.25) 0px 54px 55px, hsl(348, 83.3%, 47.1%, 0.12) 0px -12px 30px, hsl(348, 83.3%, 47.1%, 0.12) 0px 4px 6px,
+        hsl(348, 83.3%, 47.1%, 0.17) 0px 12px 13px, hsl(348, 83.3%, 47.1%, 0.09) 0px -3px 5px;
     }
 
     &:hover {
@@ -72,10 +73,20 @@ export const INDEX_NavBarWrapper = styled.header`
     & > :nth-child(1) {
       & > :nth-child(1) {
         & > :nth-child(2) {
-          /* border: 2px solid crimson; */
           order: 3;
         }
       }
     }
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+
+    background-color: ${COLORS.ACTIVE};
+    filter: blur(2px) sepia(50%);
   }
 `
