@@ -38,14 +38,15 @@ export const INDEX_FooterWrapper = styled.div`
 
   padding-top: 24px;
   padding-bottom: 24px;
+  
+  
+  
 
   & > :nth-child(1) {
-    background: rgba(0, 0, 0, 0.65);
     border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10.5px);
     -webkit-backdrop-filter: blur(10.5px);
-
+    
     padding: 24px;
 
     display: flex;
@@ -59,7 +60,17 @@ export const INDEX_FooterWrapper = styled.div`
     z-index: 1001;
 
     box-shadow: 1px 2px 4px white;
-
+    
+    cursor: pointer;
+    
+    transition: all 400ms ease-in-out;
+    
+    &:hover,
+    &:focus{
+      background-color: hsl(348, 83.3%, 47.1%, 0.41);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+    
     & > *:not(:first-child):not(:last-child) {
       margin-bottom: 24px;
     }
