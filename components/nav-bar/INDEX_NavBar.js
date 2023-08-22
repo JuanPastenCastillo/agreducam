@@ -59,7 +59,7 @@ export const INDEX_NavBar = () => {
         onClick={handleMoveToServices}
         onKeyDown={handleMoveToServices}
         tabIndex={1}
-        className={thePathname === "/servicios" && "isActiveLink"}>
+        className={thePathname === "/servicios" ? "isActiveLink" : "isNotActiveLink"}>
         <Image
           src={AGREDUCAM_Logo}
           alt="Logo de Agreducam"

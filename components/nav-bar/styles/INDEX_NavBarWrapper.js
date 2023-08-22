@@ -46,6 +46,13 @@ export const INDEX_NavBarWrapper = styled.header`
     align-items: center;
     justify-content: center;
 
+    box-shadow: ${({ $isServices }) =>
+    $isServices
+      ? `hsl(348, 83.3%, 47.1%, 0.25) 0px 54px 55px, hsl(348, 83.3%, 47.1%, 0.12) 0px -12px 30px, hsl(348, 83.3%, 47.1%, 0.12) 0px 4px 6px,
+        hsl(348, 83.3%, 47.1%, 0.17) 0px 12px 13px, hsl(348, 83.3%, 47.1%, 0.09) 0px -3px 5px;`
+      : `hsl(348, 83.3%, 97.1%, 0.25) 0px 54px 55px, hsl(348, 83.3%, 97.1%, 0.12) 0px -12px 30px, hsl(348, 83.3%, 97.1%, 0.12) 0px 4px 6px,
+        hsl(348, 83.3%, 97.1%, 0.17) 0px 12px 13px, hsl(348, 83.3%, 97.1%, 0.09) 0px -3px 5px;`};
+
     &:focus-within {
       box-shadow: hsl(180, 100%, 27.3%, 0.25) 0px 54px 55px, hsl(180, 100%, 27.3%, 0.12) 0px -12px 30px, hsl(180, 100%, 27.3%, 0.12) 0px 4px 6px,
         hsl(180, 100%, 27.3%, 0.17) 0px 12px 13px, hsl(180, 100%, 27.3%, 0.09) 0px -3px 5px;
