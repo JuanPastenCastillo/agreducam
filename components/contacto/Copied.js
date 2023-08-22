@@ -1,10 +1,13 @@
 "use client"
 import { CopiedWrapper } from "./styles/CopiedWrapper.js"
 
-export const Copied = ({ isCopied = false, textToShow = "¡Copiado!" }) => {
+export const Copied = ({ isCopied = false, textToShow = "¡Copiado!", setIsCopied }) => {
+
   return (
     <>
-      <CopiedWrapper isCopied={isCopied}>Número de <span>{`${textToShow}`}</span> Copiado</CopiedWrapper>
+      <CopiedWrapper isCopied={isCopied}>
+        {textToShow}
+      </CopiedWrapper>
     </>
   )
 }

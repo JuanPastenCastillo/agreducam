@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react"
 import { Copied } from "../contacto/Copied.js"
 import { INDEX_NosotrosWrapper } from "./styles/INDEX_NosotrosWrapper.js"
 
-const timeToShowCopied = 2500
+const timeToShowCopied = 900
 
 export const INDEX_Nosotros = () => {
   const myComponentRef = useRef(null)
@@ -20,24 +20,25 @@ export const INDEX_Nosotros = () => {
     }
   }, [])
 
-  const [isCopiedPhone, setIsCopiedPhone] = useState(false)
-  const [whoCopiedState, setWhoCopiedState] = useState()
+  const [isCopied, setIsCopied] = useState(false)
+  const [textToShowInCopied, setTextToShowInCopied] = useState(null)
 
-  const handleCopyText = (e, whatCopy, whoCopied) => {
+  const handleCopyText = (e, whatCopy) => {
     if (e.type === "click" || e.code === "Enter") {
       navigator.clipboard.writeText(whatCopy === undefined ? e.target.textContent : whatCopy)
-      setIsCopiedPhone(true)
-      setWhoCopiedState(whoCopied)
+
+      setIsCopied(true)
+      setTextToShowInCopied(`Número Copiado`)
     }
   }
 
   useEffect(() => {
-    if (isCopiedPhone) {
+    if (isCopied) {
       setTimeout(() => {
-        setIsCopiedPhone(false)
+        setIsCopied(false)
       }, timeToShowCopied)
     }
-  }, [isCopiedPhone])
+  }, [isCopied])
 
   const refComponent0 = useRef(null)
   const { intersected: intersectedComponent0 } = useObserver(refComponent0)
@@ -80,8 +81,8 @@ export const INDEX_Nosotros = () => {
         ref={refComponent3}
         className={intersectedComponent3 && `intersectedComponent0`}>
         <li
-          onClick={(e) => handleCopyText(e, undefined, DATA_COMPANY.presidente.name)}
-          onKeyDown={(e) => handleCopyText(e, undefined, DATA_COMPANY.presidente.name)}
+          onClick={(e) => handleCopyText(e, DATA_COMPANY.presidente.phone, DATA_COMPANY.presidente.name)}
+          onKeyDown={(e) => handleCopyText(e, DATA_COMPANY.presidente.phone, DATA_COMPANY.presidente.name)}
           tabIndex={0}>
           <span>Presidente: Juan Pastén</span>
         </li>
@@ -98,10 +99,7 @@ export const INDEX_Nosotros = () => {
           <span>Jefe de Transporte: Ricardo Barrientos </span>
         </li>
 
-        <Copied
-          isCopied={isCopiedPhone}
-          textToShow={whoCopiedState}
-        />
+
       </ol>
 
       <p
@@ -116,7 +114,15 @@ export const INDEX_Nosotros = () => {
         transporte, dando soluciones a nuestros clientes en el proceso de consolidación, transporte y disposición final de cargas.
       </p>
 
+
+      <Copied
+        isCopied={isCopied}
+        textToShow={textToShowInCopied}
+      />
+
       <div />
+
+
     </INDEX_NosotrosWrapper>
   )
 }
