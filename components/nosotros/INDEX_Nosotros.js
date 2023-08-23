@@ -60,7 +60,7 @@ export const INDEX_Nosotros = () => {
       <p
         ref={refComponent1}
         className={intersectedComponent1 && `intersectedComponent0`}>
-        Es una asociación gremial de dueños de camiones, fundada el saño 2000. Cuenta con una importante flota de camiones disponibles las 24 horas del día y los 365 días del año.
+        Es una asociación gremial de dueños de camiones, fundada el año 2000. Cuenta con una importante flota de camiones disponibles las 24 horas del día y los 365 días del año.
       </p>
 
       <p
@@ -101,7 +101,7 @@ export const INDEX_Nosotros = () => {
       <p
         ref={refComponent4}
         className={intersectedComponent4 && `intersectedComponent0`}>
-        Gracias a nuestra experiencia, nos permite estar a la altura en el cumplimiento de tiempos y certezas en entrega, así como también la aplicación destrictas normas den el
+        Gracias a nuestra experiencia, nos permite estar a la altura en el cumplimiento de tiempos y certezas en entrega, así como también la aplicación destrictas normas en el
         manejo de sustancias peligrosas y explosivos.
       </p>
 

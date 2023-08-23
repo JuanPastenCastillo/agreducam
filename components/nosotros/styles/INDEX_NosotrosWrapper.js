@@ -8,7 +8,6 @@ export const INDEX_NosotrosWrapper = styled.div`
   line-height: 1.9;
 
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 16px;
@@ -36,6 +35,7 @@ export const INDEX_NosotrosWrapper = styled.div`
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    
     & > :nth-child(1) {
       color: ${COLORS.ACTIVE};
       filter: sepia(20%);
@@ -70,10 +70,9 @@ export const INDEX_NosotrosWrapper = styled.div`
   & > :nth-child(5) {
     list-style: inside;
     list-style-type: decimal;
-
+    
     & > li {
       cursor: pointer;
-
       & > span {
         filter: sepia(20%);
         text-decoration: underline;
