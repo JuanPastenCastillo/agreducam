@@ -9,6 +9,8 @@ import { INDEX_ServiciosWrapper } from "./styles/INDEX_ServiciosWrapper.js"
 const timeToShowCopied = 2000
 
 export const INDEX_Servicios = () => {
+  const refComponent1 = useRef(null)
+  const { intersected: intersectedComponent1 } = useObserver(refComponent1)
   const refComponent2 = useRef(null)
   const { intersected: intersectedComponent2 } = useObserver(refComponent2)
 
@@ -28,7 +30,9 @@ export const INDEX_Servicios = () => {
   return (
     <INDEX_ServiciosWrapper ref={myComponentRef}>
       <div>
-        <div>
+        <div
+          ref={refComponent1}
+          className={intersectedComponent1 && `refComponentIntersected`}>
           <h1>Nuestros Servicios</h1>
 
           <h2>Traslado de:</h2>
@@ -53,13 +57,13 @@ export const INDEX_Servicios = () => {
               <span>Todo</span> el territorio nacional
             </li>
           </ul>
-
-          <div className="parallax bg" />
         </div>
+
+        <div className="parallax" />
 
         <div
           ref={refComponent2}
-          className={intersectedComponent2 && `refComponent2Intersected`}>
+          className={intersectedComponent2 && `refComponentIntersected`}>
           <h2>
             <span>Puedes sentirte seguro</span> con nosotros porque:
           </h2>
@@ -79,7 +83,7 @@ export const INDEX_Servicios = () => {
 
         <div
           ref={refComponent3}
-          className={intersectedComponent3 && "refComponent3Intersected"}>
+          className={intersectedComponent3 && "refComponentIntersected"}>
           <h2
             onClick={handlePushToContact}
             onKeyDown={handlePushToContact}

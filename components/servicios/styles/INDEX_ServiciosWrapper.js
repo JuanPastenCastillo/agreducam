@@ -4,36 +4,21 @@ import styled from "styled-components"
 export const INDEX_ServiciosWrapper = styled.div`
   padding: 24px;
   & > :nth-child(1) {
-    & > :nth-child(2),
-    & > :nth-child(3),
-    & > :nth-child(4) {
+    
+    & > *:not(.parallax) {
+      font-size: clamp(1.7rem, 7vw, 3rem);
+      opacity: 0.3;
+      transform: translateX(-10%);
     }
 
-    & > * {
-      font-size: clamp(1.7rem, 7vw, 3rem);
+    .refComponentIntersected {
+      opacity: 1;
+      transform: translateX(0%);
+      transition: all 700ms ease-out;
     }
 
     & > *:not(:last-child) {
       margin-bottom: 64px;
-    }
-
-    & > *:not(:first-child) {
-      opacity: 0;
-    }
-
-    & > :nth-child(2) {
-      transform: translateX(100%);
-    }
-
-    & > :nth-child(3) {
-      transform: translateX(-100%);
-    }
-
-    .refComponent2Intersected,
-    .refComponent3Intersected {
-      opacity: 1;
-      transform: translateX(0%);
-      transition: transform 700ms ease-out, opacity 900ms ease-out;
     }
 
     & > :nth-child(1) {
@@ -98,20 +83,20 @@ export const INDEX_ServiciosWrapper = styled.div`
           }
         }
       }
-
-      & > :last-child {
-        margin-top: 64px;
-        height: 60vh;
-        background-image: url("Servicios.jpg");
-        background-attachment: fixed;
-        background-position: 26% -18vw;
-        background-repeat: no-repeat;
-        background-size: cover;
-        margin-inline: -24px;
-      }
     }
 
-    & > :nth-child(2) {
+    .parallax {
+      margin-top: 64px;
+      height: 60vh;
+      background-image: url("Servicios.jpg");
+      background-attachment: fixed;
+      background-position: 26% -18vw;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin-inline: -24px;
+    }
+
+    & > :nth-child(3) {
       & > :nth-child(1) {
         margin-bottom: 24px;
 
@@ -143,7 +128,7 @@ export const INDEX_ServiciosWrapper = styled.div`
       }
     }
 
-    & > :nth-child(3) {
+    & > :nth-child(4) {
       & > h2 {
         text-align: center;
         text-decoration: underline;
@@ -152,18 +137,18 @@ export const INDEX_ServiciosWrapper = styled.div`
         & > span {
           display: block;
         }
-        
-        & > :last-child{
+
+        & > :last-child {
           color: ${COLORS.ACTIVE};
         }
 
         &:hover,
         &:focus {
           color: ${COLORS.FOCUS};
-          
-          & > :last-child{
+
+          & > :last-child {
             color: ${COLORS.FOCUS};
-        }
+          }
         }
       }
     }
