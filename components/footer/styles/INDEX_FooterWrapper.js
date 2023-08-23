@@ -39,9 +39,6 @@ export const INDEX_FooterWrapper = styled.div`
   padding-top: 24px;
   padding-bottom: 24px;
   
-  
-  
-
   & > :nth-child(1) {
     border-radius: 16px;
     backdrop-filter: blur(10.5px);

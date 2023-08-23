@@ -6,3 +6,11 @@ export const COLORS = {
   LINK: "hsl(214.2, 100%, 43.7%)",
   LINK_HOVER: "hsl(214.2, 100%, 63.7%)",
 }
+
+/* 
+HOVER and FOCUS → Some type of green
+DEFAULT → White
+LINK to some places → Blue with a underline
+CLICKABLE → RED
+HIGHLIGHT → More Font weight
+*/

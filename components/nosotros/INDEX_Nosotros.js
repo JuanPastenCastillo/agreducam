@@ -1,5 +1,6 @@
 "use client"
 import { DATA_COMPANY } from "@/utils/DATA_COMPANY.js"
+import { useMoveFirstVisitToPage } from "@/utils/useMoveFirstVisitToPage.js"
 import { useObserver } from "@/utils/useObserver.js"
 import { useEffect, useRef, useState } from "react"
 import { Copied } from "../contacto/Copied.js"
@@ -9,16 +10,7 @@ const timeToShowCopied = 900
 
 export const INDEX_Nosotros = () => {
   const myComponentRef = useRef(null)
-  useEffect(() => {
-    if (myComponentRef.current) {
-      const position = myComponentRef.current.getBoundingClientRect().top + window.scrollY
-      const scrollPosition = position
-      window.scroll({
-        top: scrollPosition,
-        behavior: "smooth",
-      })
-    }
-  }, [])
+  useMoveFirstVisitToPage(myComponentRef)
 
   const [isCopied, setIsCopied] = useState(false)
   const [textToShowInCopied, setTextToShowInCopied] = useState(null)

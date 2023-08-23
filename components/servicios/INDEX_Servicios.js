@@ -1,4 +1,5 @@
 "use client"
+import { useMoveFirstVisitToPage } from "@/utils/useMoveFirstVisitToPage.js"
 import { useObserver } from "@/utils/useObserver.js"
 import Link from "next/link.js"
 import { useRouter } from "next/navigation.js"
@@ -21,8 +22,11 @@ export const INDEX_Servicios = () => {
     }
   }
 
+  const myComponentRef = useRef(null)
+  useMoveFirstVisitToPage(myComponentRef)
+
   return (
-    <INDEX_ServiciosWrapper>
+    <INDEX_ServiciosWrapper ref={myComponentRef}>
       <div>
         <div>
           <h1>Nuestros Servicios</h1>

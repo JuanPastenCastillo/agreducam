@@ -1,20 +1,21 @@
 "use client"
 import { DATA_COMPANY } from "@/utils/DATA_COMPANY.js"
 import { formatNumberToUI } from "@/utils/formatNumberToUI.js"
-import { useEffect, useState } from "react"
+import { useMoveFirstVisitToPage } from "@/utils/useMoveFirstVisitToPage.js"
+import { useEffect, useRef, useState } from "react"
 import { Copied } from "./Copied.js"
 import { INDEX_ContactWrapper } from "./styles/INDEX_ContactWrapper.js"
 
 const timeToShowCopied = 900
 
 export const INDEX_Contact = () => {
-  const [isHover, setIsHover] = useState(false)
-  const handleOnMouseEnter = () => {
-    setIsHover(true)
-  }
-  const handleOnMouseLeave = () => {
-    setIsHover(false)
-  }
+  // const [isHover, setIsHover] = useState(false)
+  // const handleOnMouseEnter = () => {
+  //   setIsHover(true)
+  // }
+  // const handleOnMouseLeave = () => {
+  //   setIsHover(false)
+  // }
 
   const [isCopiedMail, setIsCopiedMail] = useState(false)
   const [isCopiedPhone, setIsCopiedPhone] = useState(false)
@@ -26,7 +27,7 @@ export const INDEX_Contact = () => {
 
       if (whichCopied === "email") {
         setIsCopiedMail(true)
-        setTextToShowInCopied(`Email Copiado`)
+        setTextToShowInCopied(`Correo Copiado`)
       }
       if (whichCopied === "phone") {
         setIsCopiedPhone(true)
@@ -51,9 +52,12 @@ export const INDEX_Contact = () => {
     }
   }, [isCopiedPhone])
 
+  const myComponentRef = useRef(null)
+  useMoveFirstVisitToPage(myComponentRef, -25)
+
   return (
-    <INDEX_ContactWrapper isHover={isHover}>
-      <div>
+    <INDEX_ContactWrapper ref={myComponentRef}>
+      <div >
         <h1>Contáctanos</h1>
 
         <div>
@@ -90,8 +94,7 @@ export const INDEX_Contact = () => {
           <h2>Coordinación:</h2>
           <ol>
             <li>
-              Encargado:{" "}
-              <span className="shouldWrap">{DATA_COMPANY.coordinador.name}</span>
+              Encargado: <span className="shouldWrap">{DATA_COMPANY.coordinador.name}</span>
             </li>
             <li
               onClick={(e) => handleCopyText(e, "phone", DATA_COMPANY.coordinador.phone)}
