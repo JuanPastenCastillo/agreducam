@@ -66,7 +66,7 @@ export const INDEX_Nosotros = () => {
       <p
         ref={refComponent2}
         className={intersectedComponent2 && `intersectedComponent0`}>
-        Nuestra organización está precedida por un directorio conformado por:{" "}
+        Nuestra organización está presidida por un directorio conformado por:{" "}
       </p>
 
       <ol
