@@ -1,9 +1,10 @@
 import { COLORS } from "@/assets/colors"
+import { FONT_VALUES } from "@/assets/fontValues"
 import styled from "styled-components"
 
 export const INDEX_NosotrosWrapper = styled.div`
   padding: 24px;
-  font-size: clamp(1rem, 7vw, 4rem);
+  font-size: ${FONT_VALUES.fontSizeInClamp};
   line-height: 1.9;
 
   display: flex;
@@ -16,8 +17,7 @@ export const INDEX_NosotrosWrapper = styled.div`
   & > :nth-child(3),
   & > :nth-child(4),
   & > :nth-child(5),
-  & > :nth-child(6)
-   {
+  & > :nth-child(6) {
     opacity: 0.3;
     transform: translateX(10%);
   }
@@ -51,63 +51,58 @@ export const INDEX_NosotrosWrapper = styled.div`
 
   & > :nth-child(2) {
     margin-top: 64px;
-    
+
     height: 60vh;
     width: calc(100% + calc(24px * 2));
-    
+
     overflow: hidden;
-    
+
     background-image: url("Nosotros.jpg");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    
+
     @media (max-width: 550px) {
       background-position-x: 26%;
     }
   }
 
-  & > :nth-child(3) {
-  }
-  
-  & > :nth-child(4) {
-  }
-  
   & > :nth-child(5) {
     list-style: inside;
     list-style-type: decimal;
 
     & > li {
+      cursor: pointer;
+
       & > span {
         filter: sepia(20%);
         text-decoration: underline;
         text-decoration-color: ${COLORS.ACTIVE};
 
-        cursor: pointer;
-
-        &:hover {
-          color: ${COLORS.ACTIVE};
-          filter: sepia(40%);
+        & > span {
+          white-space: pre;
         }
+      }
+      &:hover {
+        color: ${COLORS.ACTIVE};
+        filter: sepia(40%);
       }
     }
   }
-  
-  & > :last-child{
+
+  & > :last-child {
     margin-top: 64px;
     height: 60vh;
     width: calc(100% + calc(24px * 2));
     overflow: hidden;
-    
+
     background-image: url("Nosotros_2.jpg");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    
+
     @media (max-width: 1110px) {
       background-position-x: 40%;
     }
-    
   }
-  
 `

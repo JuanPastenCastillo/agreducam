@@ -1,9 +1,11 @@
 import { COLORS } from "@/assets/colors"
+import { FONT_VALUES } from "@/assets/fontValues"
 import styled from "styled-components"
 
 export const INDEX_ContactWrapper = styled.div`
   margin: 24px;
-  font-size: clamp(0.1rem, 6vw, 1.8rem);
+  font-size: ${FONT_VALUES.fontSizeInClamp};
+
   line-height: 1.9;
 
   border-radius: 24px;
@@ -12,34 +14,15 @@ export const INDEX_ContactWrapper = styled.div`
   background: linear-gradient(90deg, hsl(348, 83.3%, 47.1%) 1%, transparent 10%, transparent 90%, hsl(348, 83.3%, 47.1%) 99%);
   padding: 1px;
 
-  /* &:focus-within {
-    background: linear-gradient(90deg, ${COLORS.FOCUS} 1%, transparent 10%, transparent 90%, ${COLORS.FOCUS} 99%);
-  } */
-
-  /* &:before {
-    background: ${({ isHover }) =>
-    isHover ? `linear-gradient(320deg, transparent 5%, ${COLORS.HOVER} 50%, transparent 90%)` : `linear-gradient(320deg, transparent 20%, ${COLORS.DEFAULT} 50%, transparent 80%)`};
-
-    border-radius: inherit;
-    content: "";
-    inset: 0;
-    opacity: 1;
-    position: absolute;
-    z-index: 0;
-  } */
-
   & > :nth-child(1) {
-    /* background-color: hsl(32.9, 100%, 0%, 0.8); */
     background-color: hsl(0, 0%, 0%);
     border-radius: inherit;
-    padding: 24px;
-
-    /* border: 2px solid transparent; */
+    padding-inline: 24px;
+    padding-bottom: 16px;
 
     display: flex;
     flex-direction: column;
-    /* flex-wrap:wrap; */
-    gap: 26px;
+    gap: 80px;
 
     & > h1 {
       position: relative;
@@ -66,21 +49,13 @@ export const INDEX_ContactWrapper = styled.div`
           list-style: inside;
           list-style-type: disc;
           width: fit-content;
+          cursor: pointer;
 
           & > span {
-            cursor: pointer;
-
             & > span {
               text-decoration: underline;
               text-decoration-color: ${COLORS.ACTIVE};
               white-space: pre;
-            }
-
-            &:hover {
-              filter: sepia(40%);
-              color: ${COLORS.ACTIVE};
-              text-decoration: underline;
-              text-decoration-color: ${COLORS.ACTIVE};
             }
 
             .isEmail {
@@ -89,14 +64,28 @@ export const INDEX_ContactWrapper = styled.div`
             }
           }
 
+          &:hover:not(.noStyles) {
+            filter: sepia(40%);
+            color: ${COLORS.ACTIVE};
+            text-decoration: underline;
+            text-decoration-color: ${COLORS.ACTIVE};
+
+            &::marker {
+              color: ${COLORS.ACTIVE};
+            }
+          }
+
           .shouldWrap {
             all: unset;
             white-space: pre;
-            
+
             &:hover {
               all: unset;
             }
           }
+        }
+        .noStyles {
+          cursor: text;
         }
       }
     }

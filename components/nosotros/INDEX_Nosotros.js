@@ -76,22 +76,26 @@ export const INDEX_Nosotros = () => {
           onClick={(e) => handleCopyText(e, DATA_COMPANY.presidente.phone, DATA_COMPANY.presidente.name)}
           onKeyDown={(e) => handleCopyText(e, DATA_COMPANY.presidente.phone, DATA_COMPANY.presidente.name)}
           tabIndex={0}>
-          <span>Presidente: Juan Pastén</span>
+          <span>
+            Presidente: <span>Juan Pastén</span>
+          </span>
         </li>
         <li
           onClick={(e) => handleCopyText(e, DATA_COMPANY.tesorero.phone, DATA_COMPANY.tesorero.name)}
           onKeyDown={(e) => handleCopyText(e, DATA_COMPANY.tesorero.phone, DATA_COMPANY.tesorero.name)}
           tabIndex={0}>
-          <span>Tesorero: Pablo Soza </span>
+          <span>
+            Tesorero: <span>Pablo Soza</span>{" "}
+          </span>
         </li>
         <li
           onClick={(e) => handleCopyText(e, DATA_COMPANY.jefeDeTransporte.phone, DATA_COMPANY.jefeDeTransporte.name)}
           onKeyDown={(e) => handleCopyText(e, DATA_COMPANY.jefeDeTransporte.phone, DATA_COMPANY.jefeDeTransporte.name)}
           tabIndex={0}>
-          <span>Jefe de Transporte: Ricardo Barrientos </span>
+          <span>
+            Jefe de Transporte: <span>Ricardo Barrientos</span>{" "}
+          </span>
         </li>
-
-
       </ol>
 
       <p
@@ -106,15 +110,12 @@ export const INDEX_Nosotros = () => {
         transporte, dando soluciones a nuestros clientes en el proceso de consolidación, transporte y disposición final de cargas.
       </p>
 
-
       <Copied
         isCopied={isCopied}
         textToShow={textToShowInCopied}
       />
 
       <div />
-
-
     </INDEX_NosotrosWrapper>
   )
 }

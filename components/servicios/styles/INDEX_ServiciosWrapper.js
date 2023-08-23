@@ -1,12 +1,12 @@
 import { COLORS } from "@/assets/colors"
+import { FONT_VALUES } from "@/assets/fontValues"
 import styled from "styled-components"
 
 export const INDEX_ServiciosWrapper = styled.div`
   padding: 24px;
   & > :nth-child(1) {
-    
     & > *:not(.parallax) {
-      font-size: clamp(1.7rem, 7vw, 3rem);
+      font-size: ${FONT_VALUES.fontSizeInClamp};
       opacity: 0.3;
       transform: translateX(-10%);
     }
@@ -26,7 +26,10 @@ export const INDEX_ServiciosWrapper = styled.div`
         text-decoration: underline;
         text-decoration-color: hsl(348, 83.3%, 57.1%);
         filter: sepia(20%);
-        margin-bottom: 10%;
+        margin-bottom: 3%;
+        
+        text-align: center;
+        
         & > span {
           color: white;
         }
@@ -47,21 +50,14 @@ export const INDEX_ServiciosWrapper = styled.div`
           font-weight: 500;
 
           & > span {
-            font-weight: 700;
-            color: hsl(348, 83.3%, 53.1%);
-            filter: sepia(20%);
+            font-weight: 800;
+            color: ${COLORS.LINK};
             cursor: pointer;
             text-decoration: underline;
 
             &:hover {
-              color: hsl(195.1, 100%, 50%);
+              color: ${COLORS.LINK_HOVER};
             }
-          }
-
-          &::marker {
-            font-weight: 700;
-            color: hsl(348, 83.3%, 53.1%);
-            filter: sepia(20%);
           }
         }
       }
@@ -72,14 +68,8 @@ export const INDEX_ServiciosWrapper = styled.div`
           list-style-type: disc;
 
           & > span {
-            color: hsl(348, 83.3%, 53.1%);
-            filter: sepia(20%);
-            font-weight: 700;
-          }
-
-          &::marker {
-            color: white;
-            font-weight: 500;
+            font-weight: 800;
+            text-decoration: underline;
           }
         }
       }
@@ -101,8 +91,7 @@ export const INDEX_ServiciosWrapper = styled.div`
         margin-bottom: 24px;
 
         & > span {
-          color: hsl(348, 83.3%, 57.1%);
-          filter: sepia(20%);
+          font-weight: 800;
           text-decoration: underline;
         }
       }
@@ -116,13 +105,9 @@ export const INDEX_ServiciosWrapper = styled.div`
           list-style: inside;
 
           & > span {
-            font-weight: 700;
-            color: hsl(348, 83.3%, 53.1%);
-            filter: sepia(20%);
+            font-weight: 800;
+            text-decoration: underline;
             white-space: pre;
-
-            /* display: flex; */
-            /* flex-direction: column; */
           }
         }
       }
@@ -131,23 +116,27 @@ export const INDEX_ServiciosWrapper = styled.div`
     & > :nth-child(4) {
       & > h2 {
         text-align: center;
-        text-decoration: underline;
+        
         cursor: pointer;
-
+        
+        color:${COLORS.LINK};
+        
+        
         & > span {
           display: block;
+          
         }
 
         & > :last-child {
-          color: ${COLORS.ACTIVE};
+          text-decoration: underline;
         }
 
         &:hover,
         &:focus {
-          color: ${COLORS.FOCUS};
+          color: ${COLORS.LINK_HOVER};
 
           & > :last-child {
-            color: ${COLORS.FOCUS};
+            color: ${COLORS.LINK_HOVER};
           }
         }
       }

@@ -93,7 +93,7 @@ export const INDEX_Contact = () => {
         <div>
           <h2>Coordinación:</h2>
           <ol>
-            <li>
+            <li className="noStyles">
               Encargado: <span className="shouldWrap">{DATA_COMPANY.coordinador.name}</span>
             </li>
             <li
@@ -136,6 +136,7 @@ export const INDEX_Contact = () => {
             </li>
           </ol>
         </div>
+
       </div>
 
       <Copied
