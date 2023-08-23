@@ -101,7 +101,7 @@ export const INDEX_Nosotros = () => {
       <p
         ref={refComponent4}
         className={intersectedComponent4 && `intersectedComponent0`}>
-        Gracias a nuestra experiencia, nos permite estar a la altura en el cumplimiento de tiempos y certezas en entrega, así como también la aplicación destrictas normas en el
+        Gracias a nuestra experiencia, nos permite estar a la altura en el cumplimiento de tiempos y certezas en entrega, así como también la aplicación de estrictas normas en el
         manejo de sustancias peligrosas y explosivos.
       </p>
 
