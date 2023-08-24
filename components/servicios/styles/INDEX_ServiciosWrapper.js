@@ -45,10 +45,10 @@ export const INDEX_ServiciosWrapper = styled.div`
         & > li {
           list-style: inside;
           list-style-type: decimal;
-
+          
           color: white;
           font-weight: 500;
-
+          
           & > span {
             font-weight: 800;
             color: ${COLORS.LINK};
@@ -58,6 +58,10 @@ export const INDEX_ServiciosWrapper = styled.div`
             &:hover {
               color: ${COLORS.LINK_HOVER};
             }
+          }
+          
+          &::first-letter{
+            text-transform: uppercase;
           }
         }
       }
