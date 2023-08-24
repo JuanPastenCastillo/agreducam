@@ -54,6 +54,8 @@ export const INDEX_NosotrosWrapper = styled.div`
 
     height: 60vh;
     width: calc(100% + calc(24px * 2));
+    margin-left: -24px;
+    
 
     overflow: hidden;
 
@@ -93,6 +95,7 @@ export const INDEX_NosotrosWrapper = styled.div`
     margin-top: 64px;
     height: 60vh;
     width: calc(100% + calc(24px * 2));
+    margin-left: -24px;
     overflow: hidden;
 
     background-image: url("Nosotros_2.jpg");
