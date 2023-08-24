@@ -5,7 +5,7 @@ export const Copied = ({ isCopied = false, textToShow = "¡Copiado!", setIsCopie
 
   return (
     <>
-      <CopiedWrapper isCopied={isCopied}>
+      <CopiedWrapper isCopied={isCopied} tabIndex={-1}>
         {textToShow}
       </CopiedWrapper>
     </>

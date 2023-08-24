@@ -57,7 +57,7 @@ export const INDEX_Contact = () => {
 
   return (
     <INDEX_ContactWrapper ref={myComponentRef}>
-      <div >
+      <div>
         <h1>Contáctanos</h1>
 
         <div>
@@ -104,13 +104,11 @@ export const INDEX_Contact = () => {
                 Número de contacto: <span>{formatNumberToUI(DATA_COMPANY.coordinador.phone)}</span>
               </span>
             </li>
-            <li>
-              <span
-                onClick={(e) => handleCopyText(e, "email", DATA_COMPANY.coordinador.email)}
-                onKeyDown={(e) => handleCopyText(e, "email", DATA_COMPANY.coordinador.email)}
-                tabIndex={0}>
-                Correo: <span className="isEmail">{DATA_COMPANY.coordinador.email}</span>
-              </span>
+            <li
+              onClick={(e) => handleCopyText(e, "email", DATA_COMPANY.coordinador.email)}
+              onKeyDown={(e) => handleCopyText(e, "email", DATA_COMPANY.coordinador.email)}
+              tabIndex={0}>
+              <span>Correo: <span className="isEmail">{DATA_COMPANY.coordinador.email}</span></span>
             </li>
           </ol>
         </div>
@@ -136,7 +134,6 @@ export const INDEX_Contact = () => {
             </li>
           </ol>
         </div>
-
       </div>
 
       <Copied
