@@ -142,7 +142,7 @@ export const INDEX_Contact = () => {
           <h2>Ubicación:</h2>
           <Link
             href="https://goo.gl/maps/82aUo6jsj86nEySX9"
-            target="_blank">
+            target="_blank" referrerpolicy="no-referrer">
             Manzana 60 Sitio 3 y 4 La Chimba.
             <span> Aguas calientes con Héroes de la Concepción, Antofagasta</span>
           </Link>
