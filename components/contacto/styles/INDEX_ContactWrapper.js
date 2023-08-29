@@ -43,7 +43,7 @@ export const INDEX_ContactWrapper = styled.div`
       }
     }
 
-    & > * {
+    & > *:not(:last-child) {
       & > ol {
         & > li {
           list-style: inside;
@@ -87,6 +87,22 @@ export const INDEX_ContactWrapper = styled.div`
         .noStyles {
           cursor: text;
         }
+      }
+    }
+
+    & > :last-child {
+      & > a {
+        /* border: 2px solid crimson; */
+        color: ${COLORS.LINK};
+        text-decoration: underline;
+
+        &:hover,
+        &:focus {
+          color: ${COLORS.LINK_HOVER};
+        }
+        
+        
+        
       }
     }
   }

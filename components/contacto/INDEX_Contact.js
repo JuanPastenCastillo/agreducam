@@ -2,6 +2,7 @@
 import { DATA_COMPANY } from "@/utils/DATA_COMPANY.js"
 import { formatNumberToUI } from "@/utils/formatNumberToUI.js"
 import { useMoveFirstVisitToPage } from "@/utils/useMoveFirstVisitToPage.js"
+import Link from "next/link.js"
 import { useEffect, useRef, useState } from "react"
 import { Copied } from "./Copied.js"
 import { INDEX_ContactWrapper } from "./styles/INDEX_ContactWrapper.js"
@@ -108,7 +109,9 @@ export const INDEX_Contact = () => {
               onClick={(e) => handleCopyText(e, "email", DATA_COMPANY.coordinador.email)}
               onKeyDown={(e) => handleCopyText(e, "email", DATA_COMPANY.coordinador.email)}
               tabIndex={0}>
-              <span>Correo: <span className="isEmail">{DATA_COMPANY.coordinador.email}</span></span>
+              <span>
+                Correo: <span className="isEmail">{DATA_COMPANY.coordinador.email}</span>
+              </span>
             </li>
           </ol>
         </div>
@@ -133,6 +136,16 @@ export const INDEX_Contact = () => {
               </span>
             </li>
           </ol>
+        </div>
+
+        <div>
+          <h2>Ubicación:</h2>
+          <Link
+            href="https://goo.gl/maps/82aUo6jsj86nEySX9"
+            target="_blank">
+            Manzana 60 Sitio 3 y 4 La Chimba.
+            <span> Aguas calientes con Héroes de la Concepción, Antofagasta</span>
+          </Link>
         </div>
       </div>
 

@@ -19,6 +19,9 @@ export default function RootLayout({ children }) {
           <StyledComponentsRegistry>
             <main>{children}</main>
           </StyledComponentsRegistry>
+
+
+
           <INDEX_Footer />
         </NoSsr>
       </body>
