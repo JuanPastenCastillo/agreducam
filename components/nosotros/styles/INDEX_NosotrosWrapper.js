@@ -35,7 +35,7 @@ export const INDEX_NosotrosWrapper = styled.div`
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    
+
     & > :nth-child(1) {
       color: ${COLORS.ACTIVE};
       filter: sepia(20%);
@@ -55,7 +55,6 @@ export const INDEX_NosotrosWrapper = styled.div`
     height: 60vh;
     width: calc(100% + calc(24px * 2));
     margin-left: -24px;
-    
 
     overflow: hidden;
 
@@ -72,7 +71,7 @@ export const INDEX_NosotrosWrapper = styled.div`
   & > :nth-child(5) {
     list-style: inside;
     list-style-type: decimal;
-    
+
     & > li {
       cursor: pointer;
       & > span {

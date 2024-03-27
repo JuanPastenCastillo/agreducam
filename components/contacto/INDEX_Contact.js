@@ -10,14 +10,6 @@ import { INDEX_ContactWrapper } from "./styles/INDEX_ContactWrapper.js"
 const timeToShowCopied = 900
 
 export const INDEX_Contact = () => {
-  // const [isHover, setIsHover] = useState(false)
-  // const handleOnMouseEnter = () => {
-  //   setIsHover(true)
-  // }
-  // const handleOnMouseLeave = () => {
-  //   setIsHover(false)
-  // }
-
   const [isCopiedMail, setIsCopiedMail] = useState(false)
   const [isCopiedPhone, setIsCopiedPhone] = useState(false)
   const [textToShowInCopied, setTextToShowInCopied] = useState(null)
@@ -139,10 +131,33 @@ export const INDEX_Contact = () => {
         </div>
 
         <div>
+          <h2>Secretaria:</h2>
+          <ol>
+            <li
+              onClick={(e) => handleCopyText(e, "phone", DATA_COMPANY.secretaria.phone)}
+              onKeyDown={(e) => handleCopyText(e, "phone", DATA_COMPANY.secretaria.phone)}
+              tabIndex={0}>
+              <span>
+                Número de contacto: <span>{formatNumberToUI(DATA_COMPANY.secretaria.phone)}</span>
+              </span>
+            </li>
+            <li
+              onClick={(e) => handleCopyText(e, "email", DATA_COMPANY.secretaria.email)}
+              onKeyDown={(e) => handleCopyText(e, "email", DATA_COMPANY.secretaria.email)}
+              tabIndex={0}>
+              <span>
+                Correo: <span className="isEmail">{DATA_COMPANY.secretaria.email}</span>
+              </span>
+            </li>
+          </ol>
+        </div>
+
+        <div>
           <h2>Ubicación:</h2>
           <Link
             href="https://goo.gl/maps/82aUo6jsj86nEySX9"
-            target="_blank" referrerpolicy="no-referrer">
+            target="_blank"
+            referrerpolicy="no-referrer">
             Manzana 60 Sitio 3 y 4 La Chimba.
             <span> Aguas calientes con Héroes de la Concepción, Antofagasta</span>
           </Link>

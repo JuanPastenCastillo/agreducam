@@ -1,8 +1,9 @@
-import { INDEX_Contact } from '@/components/contacto/INDEX_Contact.js'
+import { INDEX_Contact } from "@/components/contacto/INDEX_Contact.js"
 
 export default function Contact() {
   return (
-    <INDEX_Contact />
-
+    <>
+      <INDEX_Contact />
+    </>
   )
 }

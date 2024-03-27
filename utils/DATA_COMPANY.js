@@ -20,4 +20,8 @@ export const DATA_COMPANY = {
     phone: "+56965407652",
     email: "Administracion@AgreducamLaPortada.com",
   },
+  secretaria: {
+    phone: "+56965407652",
+    email: "Secretaria@AgreducamLaPortada.com",
+  },
 }
